@@ -8,7 +8,7 @@ namespace Shop.Models
         public int OrderID { get; set; } // FK of ORDER
         public int BookID { get; set; } // FK of Book
         public int Quantity { get; set; }
-        public decimal BuyPrice { get; set; } // may change after promo
+        public decimal BuyPrice { get; set; } // may change after promotion for ex. 10%
 
         public virtual Book book { get; set; }
         public virtual Order Order { get; set; }
