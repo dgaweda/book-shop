@@ -10,15 +10,12 @@ namespace Shop.Controllers
 {
     public class HomeController : Controller
     {
-        private BooksContext db = new BooksContext();
+        private ShopContext db = new ShopContext();
         
         // GET: Home
         public ActionResult Index()
         {
-            Category category = new Category { Name = "Criminal", Description = "xyz", IcoName = "criminal.png" };
-            db.Categories.Add(category);
-            db.SaveChanges();
-
+            var categoriesList = db.Categories.ToList();
             return View();
         }
     }

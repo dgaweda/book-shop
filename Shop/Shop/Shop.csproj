@@ -102,11 +102,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contexts\BooksContext.cs" />
+    <Compile Include="Contexts\ShopContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\Initializer\ShopInitilizer.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Order.cs" />

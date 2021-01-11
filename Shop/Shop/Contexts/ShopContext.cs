@@ -1,4 +1,5 @@
-﻿using Shop.Models;
+﻿using Shop.Initializer;
+using Shop.Models;
 using Shop.Utility;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,17 @@ using System.Web;
 
 namespace Shop.Contexts
 {
-    public class BooksContext : DbContext
+    public class ShopContext : DbContext
     {
         
-        public BooksContext() : base("BooksContext") // Constructor when connectionstring(database) is extracted
+        public ShopContext() : base("BooksContext") // Constructor when connectionstring(database) is extracted
         {
                 
-            }
+        }
+        static ShopContext()
+        {
+            Database.SetInitializer<ShopContext>(new ShopInitilizer()); // Init Default Data to Database
+        }
         // Added Tables
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }

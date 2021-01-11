@@ -16,6 +16,13 @@ namespace Shop.Models
         public string Description { get; set; }
         public string IcoName { get; set; }
 
+        /*public Category(int CategoryID, string Name, string Description, string IcoName)
+        {
+            this.CategoryID = CategoryID;
+            this.Name = Name;
+            this.Description = Description;
+            this.IcoName = IcoName;
+        }*/
         public virtual ICollection<Book> Books { get; set; }
     }
 }
