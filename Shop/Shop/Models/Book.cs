@@ -8,7 +8,7 @@ namespace Shop.Models
 {
     public class Book
     {
-        public int BookID { get; set; }
+        public int BookId { get; set; }
         public int CategoryId { get; set; }
         
         [Required(ErrorMessage = "Enter title of book")]
@@ -28,6 +28,19 @@ namespace Shop.Models
         public bool Bestseller { get; set; }
         public bool Hidden { get; set; } // Option for Admin, beneath deleting it from TAB, just hide it
 
-        public virtual Category Category { get; set; }
+        /*public Book(int BookId, int CategoryId, string Title, string Author, string IcoName, string Description, decimal Price, bool Bestseller, bool Hidden)
+        {
+            this.BookId = BookId;
+            this.CategoryId = CategoryId;
+            this.Title = Title;
+            this.Author = Author;
+            this.DateAdded = DateTime.Now;
+            this.IcoName = IcoName;
+            this.Description = Description;
+            this.Price = Price;
+            this.Bestseller = Bestseller;
+            this.Hidden = Hidden;
+        }*/
+        public virtual Category Category { get; set; } // One to One - 1 Category to 1 Book
     }
 }
