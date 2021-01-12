@@ -5,19 +5,15 @@ using System.Web;
 using System.Data.Entity;
 using Shop.Contexts;
 using Shop.Models;
+using Shop.Migrations;
+using System.Data.Entity.Migrations;
 
 namespace Shop.Initializer
 {
-    public class ShopInitilizer : DropCreateDatabaseAlways<ShopContext>
+    public class ShopInitilizer : MigrateDatabaseToLatestVersion<ShopContext, Configuration> // do not delete db - keep data in db even if my app is off (Migrate DB to newest version)
     {
-        
-        protected override void Seed(ShopContext context)
-        {
-            SeedShopData(context);
-            base.Seed(context);
-        }
 
-        private void SeedShopData(ShopContext context)
+        public static void SeedShopData(ShopContext context)
         {
             string ActionAndAdventureDescription = "Action and adventure books constantly have you on the edge of your seat with excitement, as your fave main character repeatedly finds themselves in high stakes situations. The protagonist has an ultimate goal to achieve and is always put in risky, often dangerous situations. This genre typically crosses over with others like mystery, crime, sci-fi, and fantasy.";
             string ClassicsDescription = "You may think of these books as the throwback readings you were assigned in English class. (Looking at you, Charles Dickens.) The classics have been around for decades, and were often groundbreaking stories at their publish time, but have continued to be impactful for generations, serving as the foundation for many popular works we read today.";
@@ -41,7 +37,7 @@ namespace Shop.Initializer
                     new Category ( 13, "Biographies and Autobiographies","Romans", "romans.png"),
                     new Category ( 14, "Cookbooks","Romans", "romans.png"),*/
             };
-            Categories.ForEach(category => context.Categories.Add(category));
+            Categories.ForEach(category => context.Categories.AddOrUpdate(category)); // NO DUPLICATES IN DB
             context.SaveChanges();
 
             var Books = new List<Book>
@@ -50,7 +46,7 @@ namespace Shop.Initializer
                 new Book() {BookId = 2 ,CategoryId = 2,Title = "Little Women", Author = "Alcott May Louisa",DateAdded = DateTime.Now, IcoName = "life_of_pi.png", Description = LifeOfPiDescription, Price = 4 ,Bestseller = true, Hidden = false },
                 new Book() {BookId = 3 ,CategoryId = 3,Title = "The Wolking Dead: Compendium One",Author = "Yann Martel",DateAdded = DateTime.Now, IcoName = "life_of_pi.png", Description = LifeOfPiDescription, Price = 4 , Bestseller = true, Hidden = false }
             };
-            Books.ForEach(book => context.Books.Add(book));
+            Books.ForEach(book => context.Books.AddOrUpdate(book)); // NO DUPLICATES IN DB
             context.SaveChanges();
         }
     }

@@ -107,7 +107,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Contexts\Initializer\ShopInitilizer.cs" />
+    <Compile Include="Contexts\ShopInitilizer.cs" />
+    <Compile Include="Migrations\202101111954504_InitialCreate.cs" />
+    <Compile Include="Migrations\202101111954504_InitialCreate.designer.cs">
+      <DependentUpon>202101111954504_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101121847569_AddFieldShortDescription.cs" />
+    <Compile Include="Migrations\202101121847569_AddFieldShortDescription.designer.cs">
+      <DependentUpon>202101121847569_AddFieldShortDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101121919208_AddFieldTest.cs" />
+    <Compile Include="Migrations\202101121919208_AddFieldTest.designer.cs">
+      <DependentUpon>202101121919208_AddFieldTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101121920465_DeleteFieldTest.cs" />
+    <Compile Include="Migrations\202101121920465_DeleteFieldTest.designer.cs">
+      <DependentUpon>202101121920465_DeleteFieldTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Order.cs" />
@@ -131,6 +148,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202101111954504_InitialCreate.resx">
+      <DependentUpon>202101111954504_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101121847569_AddFieldShortDescription.resx">
+      <DependentUpon>202101121847569_AddFieldShortDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101121919208_AddFieldTest.resx">
+      <DependentUpon>202101121919208_AddFieldTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101121920465_DeleteFieldTest.resx">
+      <DependentUpon>202101121920465_DeleteFieldTest.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
