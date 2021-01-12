@@ -23,10 +23,12 @@ namespace Shop.Models
         
         [Required(ErrorMessage = "Fill the description")]
         public string Description { get; set; }
+        
         [Required(ErrorMessage = "Set a price")]
         public decimal Price { get; set; }
         public bool Bestseller { get; set; }
         public bool Hidden { get; set; } // Option for Admin, beneath deleting it from TAB, just hide it
+        public string ShortDescription { get; set; }
 
         /*public Book(int BookId, int CategoryId, string Title, string Author, string IcoName, string Description, decimal Price, bool Bestseller, bool Hidden)
         {
