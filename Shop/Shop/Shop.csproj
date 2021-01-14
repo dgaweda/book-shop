@@ -97,10 +97,22 @@
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Prototype\Book.html" />
+    <Content Include="Prototype\Cart.html" />
+    <Content Include="Prototype\Images\Book\lifeOfPi.jpg" />
+    <Content Include="Prototype\Images\Cart\action-adevnture.png" />
+    <Content Include="Prototype\Images\Cart\classic.png" />
+    <Content Include="Prototype\Images\Cart\comic.png" />
+    <Content Include="Prototype\Images\Cart\detective.png" />
+    <Content Include="Prototype\Images\Cart\fantasy.jpg" />
+    <Content Include="Prototype\Images\CategoriesMenu\list-point-hover.png" />
     <Content Include="Prototype\Images\CategoriesMenu\list-point.png" />
+    <Content Include="Prototype\Images\Index\bestseller.png" />
+    <Content Include="Prototype\Images\Index\new.png" />
+    <Content Include="Prototype\Images\Login\guest.png" />
     <Content Include="Prototype\Images\Header\banner.jpg" />
     <Content Include="Prototype\Images\Header\shop-cart.png" />
-    <Content Include="Prototype\Images\main-background.png" />
+    <Content Include="Prototype\Images\Login\user.png" />
     <Content Include="Prototype\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
