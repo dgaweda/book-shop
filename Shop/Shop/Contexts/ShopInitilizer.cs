@@ -12,7 +12,6 @@ namespace Shop.Initializer
 {
     public class ShopInitilizer : MigrateDatabaseToLatestVersion<ShopContext, Configuration> // do not delete db - keep data in db even if my app is off (Migrate DB to newest version)
     {
-
         public static void SeedShopData(ShopContext context)
         {
             string ActionAndAdventureDescription = "Action and adventure books constantly have you on the edge of your seat with excitement, as your fave main character repeatedly finds themselves in high stakes situations. The protagonist has an ultimate goal to achieve and is always put in risky, often dangerous situations. This genre typically crosses over with others like mystery, crime, sci-fi, and fantasy.";
@@ -24,10 +23,9 @@ namespace Shop.Initializer
             {
                     new Category() { CategoryID = 1,Name = "Action and Adventure",Description= ActionAndAdventureDescription, IcoName = "romans.png" },
                     new Category() { CategoryID = 2,Name = "Classics", Description = ClassicsDescription, IcoName = "romans.png" },
-                    new Category() { CategoryID = 3,Name = "Comic Book",Description = ComicsDescription, IcoName = "romans.png" },
-                    /*new Category ( 4, "Detective and Mystery","Romans", "romans.png"),
-                    new Category ( 5, "Fantasy","Romans", "romans.png"),
-                    */
+                    new Category() { CategoryID = 3,Name = "Comic Book", Description = ComicsDescription, IcoName = "romans.png" },
+                    new Category() { CategoryID = 4,Name = "Detective and Mystery", Description = "Romans",IcoName = "romans.png"},
+                    new Category() { CategoryID = 5,Name = "Fantasy", Description ="Romans", IcoName = "romans.png" }
             };
             Categories.ForEach(category => context.Categories.AddOrUpdate(category)); // NO DUPLICATES IN DB
             context.SaveChanges();

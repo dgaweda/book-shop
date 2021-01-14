@@ -59,11 +59,17 @@ body {
     width: 100%;
 }
 #menuLogIn {
+    text-align:center;
     font-family:Impact;
+    background-image:url("Images//Login/user.png");
+    background-size:50px 50px;
+    background-repeat:no-repeat;
+    width:300px;
+    height:50px;
 }
 .menu_button {
     position:relative;
-    left:350px;
+    left:850px;
     box-shadow: inset 0px 1px 0px 0px #e0d794;
     background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
     background-color: #ffec64;
@@ -95,7 +101,7 @@ body {
 #content {
     border:2px solid black;
     background-color:bisque;
-    height:500px;
+    height:550px;
 }
 ul {
     padding:10px 10px 10px 10px;
@@ -108,33 +114,77 @@ ul {
 }
 
 li {
-    position:relative;
-    padding:10px 10px 10px 10px;
-    width:200px;
-    font-family:Impact;
-    text-align:center;
-    background-image:url("Images/CategoriesMenu/list-point.png");
-    background-size:25px 25px;
-    background-repeat:no-repeat;
-    background-position:left center;
-    line-height:1.5;
+    position: relative;
+    padding: 10px 10px 10px 10px;
+    width: 200px;
+    font-family: Impact;
+    text-align: center;
+    background-image: url("Images/CategoriesMenu/list-point.png");
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    line-height: 1.5;
+    border-bottom: 2px solid gray;
+    border-right: 1px solid gray;
+}
+
+#categories {
+
+    border-bottom:2px solid gray;
+    margin-left:0px;
+    width:15%;
+    padding-left:40px;
+    text-align:left;
+    font-family:Arial;
+    font-weight:bold;
+    color:darkred;
+    font-size:35px;
+}
+a {
+    color:darkred;
 }
     a:link, visited{
         text-decoration:none;
         background-color:lightgray;
+        
     }
     
     a:hover, active {
     border: 2px solid gray;
-    color: lightgreen;
-    background-image: url("Images/CategoriesMenu/list-point-hover.png");
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    background-position: left center;
+    color: cadetblue;
     }
 /*LEFT MENU - CATEGORIES*/
 
 /*MAIN CONTENT*/
+
+#new {
+    background-image: url("Images/Index/new.png");
+    background-repeat: no-repeat;
+    background-size: 70px 80px;
+    width: 180px;
+    height: 210px;
+    border: 2px solid gray;
+    color: darkcyan;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: right;
+}
+
+#bestseller {
+    background-image: url("Images/Index/bestseller.png");
+    background-repeat: no-repeat;
+    background-size: 50px 80px;
+    width:180px;
+    height:210px;
+    border:2px solid gray;
+    color:darkcyan;
+    font-family:Arial;
+    font-weight:bold;
+    font-size:25px;
+    text-align:right;
+}
+
 #rightContent {
     padding:10px 10px 10px 10px;
     font-family:Impact;
@@ -146,6 +196,7 @@ li {
     float:right;
 }
 /*MAIN CONTENT*/
+
 /*FOOTER*/
 footer {
     width: 100%;
@@ -156,9 +207,9 @@ footer {
     border-radius:15px 15px 15px 15px;
 }
 #footerText {
-    color:cornflowerblue;
-    border:1px solid black;
-    border-radius:10px 10px 10px 10px;
+    color:darkred;
+    border:2px solid gray;
+    height:40px;
 }
 /*FOOTER*/
 
@@ -186,15 +237,18 @@ footer {
     color:green;
     border:3px solid orange;
 }
+
 #description {
     font-family:'Times New Roman', Times, serif;
     font-weight:bold;
     color:black;
 }
+
 #title {
     font-family:'Book Antiqua';
     font-weight:bold;
 }
+
 .buyButton {
     position: relative;
     bottom:70px;
@@ -224,3 +278,102 @@ footer {
         top: 1px;
     }
 /*BOOK*/
+/*CART*/
+#AaA {
+    background-image:url("Images/Cart/action-adevnture.png");
+    background-size:100px 70px;
+    background-repeat:no-repeat;
+    width:100px;
+    height:70px;
+    border:2px solid #736f79;
+}
+
+#classic {
+    background-image: url("Images/Cart/classic.png");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+#comic {
+    background-image: url("Images/Cart/comic.png");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+#fantasy {
+    background-image: url("Images/Cart/fantasy.jpg");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+#detective {
+    background-image: url("Images/Cart/detective.png");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+h10 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    margin-right: 50px;
+}
+
+#textPos {
+    font-size:20px;
+    color:black;
+}
+
+.deleteButton {
+    position: relative;
+    top:25px;
+    box-shadow: inset 0px 1px 0px 0px #e0d794;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    background-position: center;
+    border: 1px solid #91908e;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+    .deleteButton:hover {
+        position:relative;
+        top:23px;
+        background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+        background-color: #ffab23;
+    }
+
+    .deleteButton:active {
+        position: relative;
+        top: 23px;
+    }
+
+tr.bottomLine td {
+    border-bottom:1px solid gray;
+}
+caption {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:30px;
+    font-weight:bold;
+    color:darkred;
+}
+/*CART*/
