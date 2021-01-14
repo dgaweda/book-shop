@@ -27,15 +27,7 @@ namespace Shop.Initializer
                     new Category() { CategoryID = 3,Name = "Comic Book",Description = ComicsDescription, IcoName = "romans.png" },
                     /*new Category ( 4, "Detective and Mystery","Romans", "romans.png"),
                     new Category ( 5, "Fantasy","Romans", "romans.png"),
-                    new Category ( 6, "Historical Fiction","Romans", "romans.png"),
-                    new Category ( 7, "Horror","Romans", "romans.png"),
-                    new Category ( 8, "Literary Fiction","Romans", "romans.png"),
-                    new Category ( 9, "Romance","Romans", "romans.png"),
-                    new Category ( 10, "Sci-Fi","Romans", "romans.png"),
-                    new Category ( 11, "Short Stories","Romans", "romans.png"),
-                    new Category ( 12, "Thriller","Romans", "romans.png"),
-                    new Category ( 13, "Biographies and Autobiographies","Romans", "romans.png"),
-                    new Category ( 14, "Cookbooks","Romans", "romans.png"),*/
+                    */
             };
             Categories.ForEach(category => context.Categories.AddOrUpdate(category)); // NO DUPLICATES IN DB
             context.SaveChanges();

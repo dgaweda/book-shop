@@ -4,14 +4,16 @@
 body {
     width: 100%;
     height: 100%;
-    background-color:burlywood;
+    background-color:whitesmoke;
 }
 #main {
     position: relative;
     margin: 0 auto;
     width: 70%;
-    height: auto;
-    border: 2px solid #ff0000;
+    height:750px;
+    border: 4px solid orange;
+    box-shadow:0 0 7px 7px gray;
+    border-radius:15px 15px 15px 15px;
 }
 /* HEADER*/
 .header {
@@ -56,10 +58,12 @@ body {
     height: 50px;
     width: 100%;
 }
-
+#menuLogIn {
+    font-family:Impact;
+}
 .menu_button {
     position:relative;
-    right:-1150px;
+    left:350px;
     box-shadow: inset 0px 1px 0px 0px #e0d794;
     background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
     background-color: #ffec64;
@@ -88,20 +92,87 @@ body {
 /* HEADER*/
 
 /*LEFT MENU - CATEGORIES*/
-nav {
-    background-color:lightsalmon;
+#content {
+    border:2px solid black;
+    background-color:bisque;
+    height:500px;
 }
 ul {
+    padding:10px 10px 10px 10px;
+    margin:5px;
+    width:15%;
     list-style-type: none;
     list-style-position: inside;
+    display:inline-block;
+    line-height:26px;
 }
 
 li {
+    position:relative;
+    padding:10px 10px 10px 10px;
+    width:200px;
     font-family:Impact;
-    padding: 11px;
-    margin: 10px;
+    text-align:center;
     background-image:url("Images/CategoriesMenu/list-point.png");
     background-size:25px 25px;
     background-repeat:no-repeat;
+    background-position:left center;
+    border:2px solid gray;
+    line-height:1.5;
 }
+    li:link, visited {
+        color:white;
+    }
+    a:link, visited{
+        text-decoration:none;
+        background-color:lightgray;
+    }
+    a:hover, active {
+        border:2px solid gray;
+        color: ghostwhite;
+    }
 /*LEFT MENU - CATEGORIES*/
+
+/*MAIN CONTENT*/
+#rightContent {
+    padding:10px 10px 10px 10px;
+    font-family:Impact;
+    color: olivedrab;
+    position: relative;
+    text-align:left;
+    min-height: 100%;
+    width: 80%;
+    border: 2px solid red;
+    display: inline-block;
+    float:right;
+}
+/*MAIN CONTENT*/
+/*FOOTER*/
+footer {
+    width: 100%;
+    background-color:ivory;
+    font-family:Impact;
+    text-align:center;
+    border-radius:15px 15px 15px 15px;
+}
+#footerText {
+    color:lightslategray;
+    border:1px solid black;
+    border-radius:10px 10px 10px 10px;
+}
+/*FOOTER*/
+
+/*BOOK*/
+#book_description {
+    display:inline-block;
+    text-align:center;
+}
+
+#img {
+    background-image:url("Images/Book/lifeOfPi.jpg");
+    background-size: 200px 300px;
+    width:200px;
+    height:300px;
+    display:inline-block;
+}
+/*BOOK*/
