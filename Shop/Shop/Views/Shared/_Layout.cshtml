@@ -1,40 +1,46 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="pl-PL">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title Book Shop</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet">
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Book Shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+    <section id="main">
+        <header>
+            <section id="menu">
+                <table style="width:100%;">
+                    <tr id="cartAndButton">
+                        <td id="menuLogIn">
+                            Zalogowany jako Sample
+                        </td>
+
+                        <td>
+                            <a href="link" class="menu_button">Koszyk</a>
+                        </td>
+
+                        <td id="cart">
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section id="banner">
+                <a href="@Url.Content("~/")">
+                    <h4 id="bannerText">Dariusz Gawęda - ReadIt.app</h4>
+                </a>
+            </section>
+        </header>
+
+        <div>
+            @RenderBody()
         </div>
-    </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year Book Shop</p>
+            <p id="footerText">Copyright © 2021 onwards by Dariusz Gawęda. All rights reserved.</p>
         </footer>
-    </div>
+    </section>
 
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

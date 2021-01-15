@@ -1,7 +1,50 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@model Shop.ViewModels.HomeViewModel
+@using Shop.Infrastructure
+
+@{ 
+    ViewBag.Title = "ReadIt - Your Book Partner";
 }
+        <section id="content">
+            <p id="categories">Categories</p>
+            <ul>
+                @foreach (var category in Model.Categories)
+                {
+                    <a href="@Url.Action("List", "Book", new { Name = category.Name.ToLower()})">
+                        <li style="background-image: url(@Url.CategoriesIconsPath(category.IcoName));">
+                            @category.Name
+                        </li>
+                    </a>
+                }
+            </ul>
 
-<h2>Index</h2>
+            <section id="rightContent">
+                <table>
+                    <caption>Main Page</caption>                             
+                    <tr>
+                        @foreach (var newest in Model.Newest)
+                        {
+                            <td>
+                                <h5 id="new">
+                                    <div id="newIco"></div>
+                                    Title
+                                </h5>
+                                <a href="Cart.html" class="buy_buttonIndex">Dodaj do koszyka</a>
+                            </td>
+                        }
+                    </tr>
 
+                    <tr>
+                        @foreach (var bestseller in Model.Bestsellers)
+                        {
+                            <td>
+                                <h5 id="bestseller">
+                                    <div id="bestsellerIco"></div>
+                                    Title
+                                </h5>
+                                <a href="Cart.html" class="buy_buttonIndex">Dodaj do koszyka</a>
+                            </td>
+                        }
+                    </tr>
+                </table>
+            </section>
+        </section>
