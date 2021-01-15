@@ -101,7 +101,7 @@
     <Content Include="Content\Images\Cart\comic.png" />
     <Content Include="Content\Images\Cart\detective.png" />
     <Content Include="Content\Images\Cart\fantasy.jpg" />
-    <Content Include="Content\Images\CategoriesMenu\list-point-hover.png" />
+    <Content Include="Content\Images\Cart\list-point.png" />
     <Content Include="Content\Images\CategoriesMenu\list-point.png" />
     <Content Include="Content\Images\Header\banner.jpg" />
     <Content Include="Content\Images\Header\shop-cart.png" />
@@ -133,11 +133,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Contexts\ShopContext.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Contexts\ShopInitilizer.cs" />
+    <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\UrlHelpers.cs" />
     <Compile Include="Migrations\202101111954504_InitialCreate.cs" />
     <Compile Include="Migrations\202101111954504_InitialCreate.designer.cs">
       <DependentUpon>202101111954504_InitialCreate.cs</DependentUpon>
@@ -162,6 +165,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ClientData\Address.cs" />
     <Compile Include="Models\ClientData\Client.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -170,6 +174,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Prototype\Index.html" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Book\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
