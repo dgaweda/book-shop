@@ -95,6 +95,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Book\lifeOfPi.jpg" />
+    <Content Include="Content\Images\Cart\action-adevnture.png" />
+    <Content Include="Content\Images\Cart\classic.png" />
+    <Content Include="Content\Images\Cart\comic.png" />
+    <Content Include="Content\Images\Cart\detective.png" />
+    <Content Include="Content\Images\Cart\fantasy.jpg" />
+    <Content Include="Content\Images\CategoriesMenu\list-point-hover.png" />
+    <Content Include="Content\Images\CategoriesMenu\list-point.png" />
+    <Content Include="Content\Images\Header\banner.jpg" />
+    <Content Include="Content\Images\Header\shop-cart.png" />
+    <Content Include="Content\Images\Index\bestseller.png" />
+    <Content Include="Content\Images\Index\new.png" />
+    <Content Include="Content\Images\Login\guest.png" />
+    <Content Include="Content\Images\Login\user.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Prototype\Book.html" />

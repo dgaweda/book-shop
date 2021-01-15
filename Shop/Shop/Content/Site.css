@@ -45,7 +45,7 @@ body {
 }
 
 #cart {
-    background-image: url("/Prototype/Images/Header/shop-cart.png");
+    background-image: url("/Content/Images/Header/shop-cart.png");
     background-size: 60px 40px;
     background-repeat: no-repeat;
     object-position: right;
@@ -65,7 +65,7 @@ body {
 #menuLogIn {
     text-align: center;
     font-family: Impact;
-    background-image: url("/Prototype/Images//Login/user.png");
+    background-image: url("/Content/Images//Login/user.png");
     background-size: 50px 50px;
     background-repeat: no-repeat;
     width: 300px;
@@ -125,7 +125,7 @@ li {
     width: 200px;
     font-family: Impact;
     text-align: center;
-    background-image: url("/Prototype/Images/CategoriesMenu/list-point.png");
+    background-image: url("/Content/Images/CategoriesMenu/list-point.png");
     background-size: 25px 25px;
     background-repeat: no-repeat;
     background-position: left center;
@@ -164,7 +164,7 @@ a {
 /*MAIN CONTENT*/
 
 #new {
-    background-image: url("/Prototype/Images/Index/new.png");
+    background-image: url("/Content/Images/Index/new.png");
     background-repeat: no-repeat;
     background-size: 70px 80px;
     width: 180px;
@@ -178,7 +178,7 @@ a {
 }
 
 #bestseller {
-    background-image: url("/Prototype/Images/Index/bestseller.png");
+    background-image: url("/Content/Images/Index/bestseller.png");
     background-repeat: no-repeat;
     background-size: 50px 80px;
     width: 180px;
@@ -227,7 +227,7 @@ footer {
 }
 
 #img {
-    background-image: url("/Prototype/Images/Book/lifeOfPi.jpg");
+    background-image: url("/Content/Images/Book/lifeOfPi.jpg");
     background-size: 200px 300px;
     width: 200px;
     height: 300px;
@@ -293,7 +293,7 @@ footer {
 /*BOOK*/
 /*CART*/
 #AaA {
-    background-image: url("/Prototype/Images/Cart/action-adevnture.png");
+    background-image: url("/Content/Images/Cart/action-adevnture.png");
     background-size: 100px 70px;
     background-repeat: no-repeat;
     width: 100px;
@@ -302,7 +302,7 @@ footer {
 }
 
 #classic {
-    background-image: url("/Prototype/Images/Cart/classic.png");
+    background-image: url("/Content/Images/Cart/classic.png");
     background-size: 100px 70px;
     background-repeat: no-repeat;
     width: 100px;
@@ -311,7 +311,7 @@ footer {
 }
 
 #comic {
-    background-image: url("/Prototype/Images/Cart/comic.png");
+    background-image: url("/Content/Images/Cart/comic.png");
     background-size: 100px 70px;
     background-repeat: no-repeat;
     width: 100px;
@@ -320,7 +320,7 @@ footer {
 }
 
 #fantasy {
-    background-image: url("/Prototype/Images/Cart/fantasy.jpg");
+    background-image: url("/Content/Images/Cart/fantasy.jpg");
     background-size: 100px 70px;
     background-repeat: no-repeat;
     width: 100px;
@@ -329,7 +329,7 @@ footer {
 }
 
 #detective {
-    background-image: url("/Prototype/Images/Cart/detective.png");
+    background-image: url("/Content/Images/Cart/detective.png");
     background-size: 100px 70px;
     background-repeat: no-repeat;
     width: 100px;
