@@ -1,30 +1,393 @@
 ﻿* {
     margin: 0 auto;
 }
+
 body {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
 }
+
 #main {
     position: relative;
     margin: 0 auto;
-    width: 1000px;;
-    height: auto;
-    border: 2px solid #ff0000;
-    background-image: url(/Prototype/Images/main-background.png);
+    width: 70%;
+    height: 750px;
+    border: 4px solid orange;
+    box-shadow: 0 0 7px 7px gray;
+    border-radius: 15px 15px 15px 15px;
 }
 /* HEADER*/
-#menu {
-    position:relative;
-    height:100px;
-    width:100%;
-    border:2px groove #ff0000;
-}
-#banner {
-    position:relative;
-    height:200px;
-    width:100%;
-    border:2px groove #ffd800;
+.header {
+    position: relative;
+    width: 100%;
+    height: 150px;
 }
 
+#banner {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    background-color: ivory;
+}
+
+#bannerText {
+    font-family: Impact;
+    font-size: 50px;
+    font-weight: 100;
+    color: rgba(143, 10, 10, 1);
+    text-transform: capitalize;
+    font-style: oblique;
+    text-decoration: underline overline;
+    line-height: 2em;
+    letter-spacing: 0.8px;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+}
+
+#cart {
+    background-image: url("/Prototype/Images/Header/shop-cart.png");
+    background-size: 60px 40px;
+    background-repeat: no-repeat;
+    object-position: right;
+    right: 20px;
+    width: 60px;
+    height: 40px;
+    position: relative;
+}
+
+#menu {
+    background-color: white;
+    position: relative;
+    height: 50px;
+    width: 100%;
+}
+
+#menuLogIn {
+    text-align: center;
+    font-family: Impact;
+    background-image: url("/Prototype/Images//Login/user.png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 50px;
+}
+
+.menu_button {
+    position: relative;
+    left: 850px;
+    box-shadow: inset 0px 1px 0px 0px #e0d794;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border: 1px solid #91908e;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+    .menu_button:hover {
+        background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+        background-color: #ffab23;
+    }
+
+    .menu_button:active {
+        position: relative;
+        top: 1px;
+    }
+
 /* HEADER*/
+
+/*LEFT MENU - CATEGORIES*/
+#content {
+    border: 2px solid black;
+    background-color: bisque;
+    height: 550px;
+}
+
+ul {
+    padding: 10px 10px 10px 10px;
+    margin: 5px;
+    width: 15%;
+    list-style-type: none;
+    list-style-position: inside;
+    display: inline-block;
+    line-height: 26px;
+}
+
+li {
+    position: relative;
+    padding: 10px 10px 10px 10px;
+    width: 200px;
+    font-family: Impact;
+    text-align: center;
+    background-image: url("/Prototype/Images/CategoriesMenu/list-point.png");
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    line-height: 1.5;
+    border-bottom: 2px solid gray;
+    border-right: 1px solid gray;
+}
+
+#categories {
+    border-bottom: 2px solid gray;
+    margin-left: 0px;
+    width: 15%;
+    padding-left: 40px;
+    text-align: left;
+    font-family: Arial;
+    font-weight: bold;
+    color: darkred;
+    font-size: 35px;
+}
+
+a {
+    color: darkred;
+}
+
+    a:link, visited {
+        text-decoration: none;
+        background-color: lightgray;
+    }
+
+    a:hover, active {
+        border: 2px solid gray;
+        color: cadetblue;
+    }
+/*LEFT MENU - CATEGORIES*/
+
+/*MAIN CONTENT*/
+
+#new {
+    background-image: url("/Prototype/Images/Index/new.png");
+    background-repeat: no-repeat;
+    background-size: 70px 80px;
+    width: 180px;
+    height: 210px;
+    border: 2px solid gray;
+    color: darkcyan;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: right;
+}
+
+#bestseller {
+    background-image: url("/Prototype/Images/Index/bestseller.png");
+    background-repeat: no-repeat;
+    background-size: 50px 80px;
+    width: 180px;
+    height: 210px;
+    border: 2px solid gray;
+    color: darkcyan;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: right;
+}
+
+#rightContent {
+    padding: 10px 10px 10px 10px;
+    font-family: Impact;
+    color: olivedrab;
+    position: relative;
+    text-align: left;
+    width: 80%;
+    display: inline-block;
+    float: right;
+}
+/*MAIN CONTENT*/
+
+/*FOOTER*/
+footer {
+    width: 100%;
+    background-color: navajowhite;
+    font-family: Impact;
+    text-align: center;
+    vertical-align: central;
+    border-radius: 15px 15px 15px 15px;
+}
+
+#footerText {
+    color: darkred;
+    border: 2px solid gray;
+    height: 40px;
+}
+/*FOOTER*/
+
+/*BOOK*/
+#book_description {
+    display: inline-block;
+    text-align: center;
+}
+
+#img {
+    background-image: url("/Prototype/Images/Book/lifeOfPi.jpg");
+    background-size: 200px 300px;
+    width: 200px;
+    height: 300px;
+    display: inline-block;
+}
+
+#price {
+    margin-top: 30px;
+    color: black;
+    position: relative;
+    bottom: 100px;
+    right: 20px;
+    font-size: 30px;
+    color: green;
+    border: 3px solid orange;
+}
+
+#description {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: black;
+}
+
+#title {
+    font-family: 'Book Antiqua';
+    font-weight: bold;
+}
+
+.buy_button {
+    position: relative;
+    bottom: 70px;
+    right: 20px;
+    box-shadow: inset 0px 1px 0px 0px #e0d794;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border: 1px solid #91908e;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+    .buy_button:hover {
+        background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+        background-color: #ffab23;
+    }
+
+    .buy_button:active {
+        position: relative;
+        bottom: 69px;
+    }
+
+#bookCaption {
+    position: relative;
+    right: 50px;
+}
+
+/*BOOK*/
+/*CART*/
+#AaA {
+    background-image: url("/Prototype/Images/Cart/action-adevnture.png");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+#classic {
+    background-image: url("/Prototype/Images/Cart/classic.png");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+#comic {
+    background-image: url("/Prototype/Images/Cart/comic.png");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+#fantasy {
+    background-image: url("/Prototype/Images/Cart/fantasy.jpg");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+#detective {
+    background-image: url("/Prototype/Images/Cart/detective.png");
+    background-size: 100px 70px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 70px;
+    border: 2px solid #736f79;
+}
+
+h10 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    margin-right: 50px;
+}
+
+#textPos {
+    font-size: 20px;
+    color: black;
+}
+
+.deleteButton {
+    position: relative;
+    top: 25px;
+    box-shadow: inset 0px 1px 0px 0px #e0d794;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    background-position: center;
+    border: 1px solid #91908e;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+    .deleteButton:hover {
+        position: relative;
+        top: 23px;
+        background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+        background-color: #ffab23;
+    }
+
+    .deleteButton:active {
+        position: relative;
+        top: 23px;
+    }
+
+tr.bottomLine td {
+    border-bottom: 1px solid gray;
+}
+
+caption {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: darkred;
+}
+/*CART*/

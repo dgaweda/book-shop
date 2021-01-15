@@ -1,1 +1,44 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet">
+</head>
+
+<body>
+    <section id="main">
+        <header>
+            <section id="menu">
+                <table style="width:100%;">
+                    <tr id="cartAndButton">
+                        <td id="menuLogIn">
+                            Zalogowany jako Sample
+                        </td>
+
+                        <td>
+                            <a href="link" class="menu_button">Koszyk</a>
+                        </td>
+
+                        <td id="cart">
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <section id="banner">
+                <h4 id="bannerText">Dariusz Gawęda - ReadIt.app</h4>
+            </section>
+        </header>
+
+        <div>
+            @RenderBody()
+        </div>
+
+        <footer>
+            <p id="footerText">Copyright © 2021 onwards by Dariusz Gawęda. All rights reserved.</p>
+        </footer>
+    </section>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
