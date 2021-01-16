@@ -6,20 +6,15 @@ using System.Web.Mvc;
 
 namespace Shop.Controllers
 {
-    public class BookController : Controller
+    public class CartController : Controller
     {
-        // GET: Book
+        // GET: Cart
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult List(string categoryName)
-        {
-            return View();
-        }
-
-        public ActionResult Details(string Id)
+        public ActionResult AddToCart(string Id)
         {
             return View();
         }

@@ -24,11 +24,13 @@
                         @foreach (var newest in Model.Newest)
                         {
                             <td>
-                                <h5 id="new">
-                                    <div id="newIco"></div>
-                                    Title
-                                </h5>
-                                <a href="Cart.html" class="buy_buttonIndex">Dodaj do koszyka</a>
+                                <a href="@Url.Action("Details", "Book", new { id = newest.BookId })">
+                                    <h5 style="background-image:url(@Url.BookImagesPath(newest.IcoName))" id="new">
+                                        <div style="background-image: url(@Url.Content("~/Content/Images/Index/new.png"))" id="newIco" )></div>
+                                        <h6 id="TitleAndAuthor">@newest.Title - @newest.Author</h6>
+                                    </h5>
+                                    <a href="@Url.Action("AddToCart", "Cart", new { id = newest.BookId })" class="buy_buttonIndex">Dodaj do koszyka</a>
+                                </a>
                             </td>
                         }
                     </tr>
@@ -37,11 +39,13 @@
                         @foreach (var bestseller in Model.Bestsellers)
                         {
                             <td>
-                                <h5 id="bestseller">
-                                    <div id="bestsellerIco"></div>
-                                    Title
-                                </h5>
-                                <a href="Cart.html" class="buy_buttonIndex">Dodaj do koszyka</a>
+                                <a href="@Url.Action("Details", "Book", new { id = bestseller.BookId})">
+                                    <h5 style="background-image:url(@Url.BookImagesPath(bestseller.IcoName))" id="bestseller">
+                                        <div style="background-image: url(@Url.Content("~/Content/Images/Index/bestseller.png"))" id="bestsellerIco"></div>
+                                        <h6 id="TitleAndAuthor">@bestseller.Title - @bestseller.Author</h6>
+                                    </h5>
+                                    <a href="@Url.Action("AddToCart", "Cart", new { id = bestseller.BookId })" class="buy_buttonIndex">Dodaj do koszyka</a>
+                                </a>
                             </td>
                         }
                     </tr>
