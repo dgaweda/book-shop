@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Shop.Models.Category>
+    @using Shop.Infrastructure
+
+        <table>
+            <p id="categories">Categories</p>
+            <ul>
+                @foreach (var category in Model)
+                {
+                    <a href="@Url.Action("List", "Book", new {Name = category.Name.ToString() })">
+                        <li style="background-image: url(@Url.CategoriesIconsPath(category.IcoName));">
+                            @category.Name
+                        </li>
+                    </a>
+                }
+            </ul>
+        </table>

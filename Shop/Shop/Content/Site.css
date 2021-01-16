@@ -444,3 +444,49 @@ caption {
     color: darkred;
 }
 /*CART*/
+
+/*Categories*/
+
+#bookCategories {
+    background-repeat: no-repeat;
+    background-size: 80px 110px;
+    border: 2px solid black;
+    width: 80px;
+    height: 110px;
+    border: 2px solid gray;
+    color: darkcyan;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.buy_buttonCategories {
+    position: relative;
+    top: 5px;
+    box-shadow: inset 0px 1px 0px 0px #e0d794;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border: 1px solid #91908e;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 12px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+    .buy_buttonCategories:hover {
+        background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+        background-color: #ffab23;
+    }
+
+    .buy_buttonCategories:active {
+        position: relative;
+        top: 5px;
+    }
+/*Categories*/

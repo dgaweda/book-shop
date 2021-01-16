@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\PraktyczneKursy.mdf" />
     <Content Include="Content\Images\Book\harry-potter.jpg" />
     <Content Include="Content\Images\Book\lifeOfPi.jpg" />
     <Content Include="Content\Images\Book\little-woman.jpg" />
@@ -117,6 +118,7 @@
     <Content Include="Global.asax" />
     <Content Include="Prototype\Book.html" />
     <Content Include="Prototype\Cart.html" />
+    <Content Include="Prototype\Categories.html" />
     <Content Include="Prototype\Images\Book\lifeOfPi.jpg" />
     <Content Include="Prototype\Images\Cart\action-adevnture.png" />
     <Content Include="Prototype\Images\Cart\classic.png" />
@@ -181,6 +183,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Book\List.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
+    <Content Include="Views\Book\_CategoriesMenu.cshtml" />
+    <Content Include="Views\Book\_BookList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -188,9 +192,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202101111954504_InitialCreate.resx">
       <DependentUpon>202101111954504_InitialCreate.cs</DependentUpon>

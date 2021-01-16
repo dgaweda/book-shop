@@ -18,10 +18,10 @@ namespace Shop.Initializer
             string ShortDescriptionExample = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
             var Categories = new List<Category>
             {
-                    new Category() { CategoryID = 1,Name = "Action and Adventure",Description = DescriptionExample, IcoName = "list-point.png" },
+                    new Category() { CategoryID = 1,Name = "ActionAndAdventure",Description = DescriptionExample, IcoName = "list-point.png" },
                     new Category() { CategoryID = 2,Name = "Classics", Description = DescriptionExample, IcoName = "list-point.png" },
-                    new Category() { CategoryID = 3,Name = "Comic Book", Description = DescriptionExample, IcoName = "list-point.png" },
-                    new Category() { CategoryID = 4,Name = "Detective and Mystery", Description = DescriptionExample,IcoName = "list-point.png"},
+                    new Category() { CategoryID = 3,Name = "Comic", Description = DescriptionExample, IcoName = "list-point.png" },
+                    new Category() { CategoryID = 4,Name = "Detective", Description = DescriptionExample,IcoName = "list-point.png"},
                     new Category() { CategoryID = 5,Name = "Fantasy", Description = DescriptionExample, IcoName = "list-point.png" }
             };
             Categories.ForEach(category => context.Categories.AddOrUpdate(category)); // NO DUPLICATES IN DB
