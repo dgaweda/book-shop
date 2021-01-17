@@ -140,6 +140,10 @@
     </Compile>
     <Compile Include="Contexts\ShopInitilizer.cs" />
     <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\CartManager.cs" />
+    <Compile Include="Infrastructure\ISessionManager.cs" />
+    <Compile Include="Infrastructure\SessionKey.cs" />
+    <Compile Include="Infrastructure\SessionManager.cs" />
     <Compile Include="Infrastructure\UrlHelpers.cs" />
     <Compile Include="Migrations\202101111954504_InitialCreate.cs" />
     <Compile Include="Migrations\202101111954504_InitialCreate.designer.cs">
@@ -158,10 +162,11 @@
       <DependentUpon>202101121920465_DeleteFieldTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderPosition.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ClientData\Address.cs" />
     <Compile Include="Models\ClientData\Client.cs" />
