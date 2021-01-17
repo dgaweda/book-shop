@@ -26,9 +26,10 @@ namespace Shop.Controllers
             return View(books);
         }
 
-        public ActionResult Details(string Id)
+        public ActionResult Details(int id)
         {
-            return View();
+            var book = db.Books.Find(id);
+            return View(book);
         }
         [ChildActionOnly] // wywowalnie z poziomu innej akcji
         public ActionResult CategoriesMenu() 

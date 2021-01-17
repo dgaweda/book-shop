@@ -155,14 +155,12 @@ a {
     }
 
     a:hover, active {
-        border: 2px solid gray;
         color: cadetblue;
     }
 /*LEFT MENU - CATEGORIES*/
 
 /*MAIN CONTENT*/
 #TitleAndAuthor {
-    border:2px solid gray;
     width:180px;
     font-weight:normal;
     font-size:13px;
@@ -218,7 +216,6 @@ a {
     font-family: Impact;
     color: olivedrab;
     position: relative;
-    text-align: left;
     width: 70%;
     display: inline-block;
     float: right;
@@ -245,12 +242,12 @@ a {
     text-shadow: 0px 1px 0px #ffee66;
 }
 
-.buy_button:hover {
+.buy_buttonIndex:hover {
     background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
     background-color: #ffab23;
 }
 
-.buy_button:active {
+.buy_buttonIndex:active {
     position: relative;
     top: 4px;
 }
@@ -280,11 +277,22 @@ footer {
 }
 
 #img {
-    background-image: url("/Content/Images/Book/lifeOfPi.jpg");
     background-size: 200px 300px;
+    background-repeat:no-repeat;
     width: 200px;
     height: 300px;
     display: inline-block;
+    border:2px solid gray;
+}
+
+#imgBook{
+    position:relative;
+    background-size: 150px 250px;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 300px;
+    display: inline-block;
+    border: 2px solid gray;
 }
 
 #price {
@@ -340,7 +348,7 @@ footer {
 
 #bookCaption {
     position: relative;
-    right: 50px;
+    right: 60px;
 }
 
 /*BOOK*/

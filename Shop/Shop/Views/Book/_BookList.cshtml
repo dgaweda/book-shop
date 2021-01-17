@@ -9,14 +9,15 @@
                 <td>
                     <a href="@Url.Action("Details", "Book", new { id = book.BookId })">
                         <article style="background-image:url(@Url.BookImagesPath(book.IcoName))" id="bookCategories">
-                            
-                            @if (book.Bestseller)
+
+                            @if (!book.Bestseller)
                             {
-                            <div id="bestsellerIco"></div>
+                                <div id="bestsellerIco"></div>
                             }
 
-                            @book.Title - @book.Author
+
                         </article>
+                        <h6 id="TitleAndAuthor">@book.Title - @book.Author</h6>
                     </a>
                         <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId})" class="buy_buttonCategories">Dodaj do koszyka</a>
                     
