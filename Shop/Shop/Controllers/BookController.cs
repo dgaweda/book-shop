@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop.Contexts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,17 +9,15 @@ namespace Shop.Controllers
 {
     public class BookController : Controller
     {
+        private ShopContext db = new ShopContext();
         // GET: Book
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult List(string categoryName)
+        public ActionResult List(string Name)
         {
-<<<<<<< Updated upstream
-            return View();
-=======
             var categories = db.Categories
                 .Include("Books")
                 .Where(c => c.Name.ToUpper() == Name.ToUpper())
@@ -39,7 +38,6 @@ namespace Shop.Controllers
         {
             var categories = db.Categories.ToList(); // ref categories to partial view
             return PartialView("_CategoriesMenu", categories);
->>>>>>> Stashed changes
         }
     }
 }
