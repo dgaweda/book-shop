@@ -152,21 +152,9 @@
     <Compile Include="Infrastructure\SessionKey.cs" />
     <Compile Include="Infrastructure\SessionManager.cs" />
     <Compile Include="Infrastructure\UrlHelpers.cs" />
-    <Compile Include="Migrations\202101111954504_InitialCreate.cs" />
-    <Compile Include="Migrations\202101111954504_InitialCreate.designer.cs">
-      <DependentUpon>202101111954504_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101121847569_AddFieldShortDescription.cs" />
-    <Compile Include="Migrations\202101121847569_AddFieldShortDescription.designer.cs">
-      <DependentUpon>202101121847569_AddFieldShortDescription.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101121919208_AddFieldTest.cs" />
-    <Compile Include="Migrations\202101121919208_AddFieldTest.designer.cs">
-      <DependentUpon>202101121919208_AddFieldTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101121920465_DeleteFieldTest.cs" />
-    <Compile Include="Migrations\202101121920465_DeleteFieldTest.designer.cs">
-      <DependentUpon>202101121920465_DeleteFieldTest.cs</DependentUpon>
+    <Compile Include="Migrations\202101181348386_INIT.cs" />
+    <Compile Include="Migrations\202101181348386_INIT.Designer.cs">
+      <DependentUpon>202101181348386_INIT.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -198,19 +186,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101111954504_InitialCreate.resx">
-      <DependentUpon>202101111954504_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101121847569_AddFieldShortDescription.resx">
-      <DependentUpon>202101121847569_AddFieldShortDescription.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101121919208_AddFieldTest.resx">
-      <DependentUpon>202101121919208_AddFieldTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101121920465_DeleteFieldTest.resx">
-      <DependentUpon>202101121920465_DeleteFieldTest.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101181348386_INIT.resx">
+      <DependentUpon>202101181348386_INIT.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
