@@ -185,7 +185,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Prototype\Index.html" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_Index.cshtml" />
     <Content Include="Views\Book\List.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
     <Content Include="Views\Book\_CategoriesMenu.cshtml" />
