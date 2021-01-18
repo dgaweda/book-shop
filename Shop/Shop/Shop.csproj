@@ -95,7 +95,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\PraktyczneKursy.mdf" />
     <Content Include="Content\Images\Book\harry-potter.jpg" />
     <Content Include="Content\Images\Book\lifeOfPi.jpg" />
     <Content Include="Content\Images\Book\little-woman.jpg" />
@@ -179,6 +178,7 @@
     <Content Include="Views\Book\_CategoriesMenu.cshtml" />
     <Content Include="Views\Book\_BookList.cshtml" />
     <Content Include="Views\Book\Details.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -190,6 +190,9 @@
     <EmbeddedResource Include="Migrations\202101181348386_INIT.resx">
       <DependentUpon>202101181348386_INIT.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
