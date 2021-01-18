@@ -27,7 +27,7 @@ namespace Shop.Contexts
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderPositions { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        public DbSet<Client> Clients { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
