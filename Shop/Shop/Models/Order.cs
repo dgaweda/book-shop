@@ -17,7 +17,7 @@ namespace Shop.Models
         public decimal OrderValue { get; set; }
         
         public virtual Client Client { get; set; }
-        List<OrderPosition> OrderPositions { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
     }
 
     public enum Status

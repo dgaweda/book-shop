@@ -31,7 +31,9 @@ namespace Shop.Controllers
             var book = db.Books.Find(id);
             return View(book);
         }
+        
         [ChildActionOnly] // wywowalnie z poziomu innej akcji
+        //[OutputCache(Duration = 3600)] // przechowywanie danych w pamieci cache 3600 s
         public ActionResult CategoriesMenu() 
         {
             var categories = db.Categories.ToList(); // ref categories to partial view
