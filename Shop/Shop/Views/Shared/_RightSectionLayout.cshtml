@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="content">
+    @Html.Action("CategoriesMenu", "Book")
+
+    <section id="rightContent">
+
+
+        <table id="book_description">
+            <h1>
+                @RenderSection("SectionTitle", required: false)
+            </h1>
+            @RenderBody()
+        </table>
+    </section>
+</section>
+
+@section Scripts
+{
+    @RenderSection("Scripts", required: false)
+}
+
