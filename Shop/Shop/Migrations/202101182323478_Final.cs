@@ -3,7 +3,7 @@ namespace Shop.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class INIT : DbMigration
+    public partial class Final : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,6 @@ namespace Shop.Migrations
                 c => new
                     {
                         AddressID = c.Int(nullable: false, identity: true),
-                        ClientID = c.Int(nullable: false),
                         Street = c.String(nullable: false, maxLength: 50),
                         StreetNumber = c.Int(nullable: false),
                         HouseNumber = c.Int(nullable: false),
@@ -22,17 +21,17 @@ namespace Shop.Migrations
                 .PrimaryKey(t => t.AddressID);
             
             CreateTable(
-                "dbo.Client",
+                "dbo.User",
                 c => new
                     {
-                        ClientID = c.Int(nullable: false, identity: true),
+                        UserID = c.Int(nullable: false, identity: true),
                         AddressID = c.Int(nullable: false),
                         Name = c.String(nullable: false, maxLength: 30),
                         LastName = c.String(nullable: false, maxLength: 30),
                         PhoneNumber = c.String(),
                         Email = c.String(nullable: false, maxLength: 100),
                     })
-                .PrimaryKey(t => t.ClientID)
+                .PrimaryKey(t => t.UserID)
                 .ForeignKey("dbo.Address", t => t.AddressID, cascadeDelete: true)
                 .Index(t => t.AddressID);
             
@@ -88,35 +87,35 @@ namespace Shop.Migrations
                 c => new
                     {
                         OrderID = c.Int(nullable: false, identity: true),
-                        ClientID = c.Int(nullable: false),
+                        UserID = c.Int(nullable: false),
                         Comment = c.String(),
                         DateAdded = c.DateTime(nullable: false),
                         Status = c.Int(nullable: false),
                         OrderValue = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.OrderID)
-                .ForeignKey("dbo.Client", t => t.ClientID, cascadeDelete: true)
-                .Index(t => t.ClientID);
+                .ForeignKey("dbo.User", t => t.UserID, cascadeDelete: true)
+                .Index(t => t.UserID);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Order", "UserID", "dbo.User");
             DropForeignKey("dbo.OrderItem", "OrderID", "dbo.Order");
-            DropForeignKey("dbo.Order", "ClientID", "dbo.Client");
             DropForeignKey("dbo.OrderItem", "BookID", "dbo.Book");
             DropForeignKey("dbo.Book", "CategoryId", "dbo.Category");
-            DropForeignKey("dbo.Client", "AddressID", "dbo.Address");
-            DropIndex("dbo.Order", new[] { "ClientID" });
+            DropForeignKey("dbo.User", "AddressID", "dbo.Address");
+            DropIndex("dbo.Order", new[] { "UserID" });
             DropIndex("dbo.OrderItem", new[] { "BookID" });
             DropIndex("dbo.OrderItem", new[] { "OrderID" });
             DropIndex("dbo.Book", new[] { "CategoryId" });
-            DropIndex("dbo.Client", new[] { "AddressID" });
+            DropIndex("dbo.User", new[] { "AddressID" });
             DropTable("dbo.Order");
             DropTable("dbo.OrderItem");
             DropTable("dbo.Category");
             DropTable("dbo.Book");
-            DropTable("dbo.Client");
+            DropTable("dbo.User");
             DropTable("dbo.Address");
         }
     }

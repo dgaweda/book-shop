@@ -9,7 +9,6 @@ namespace Shop.Utility
     public class Address
     {
         public int AddressID { get; set; }
-        public int ClientID { get; set; }
         
         [Required(ErrorMessage = "Enter street name")]
         [StringLength(50)]
@@ -28,6 +27,6 @@ namespace Shop.Utility
         [Required(ErrorMessage = "Enter city's name")]
         public string City { get; set; }
 
-        public virtual ICollection<Client> Clients { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

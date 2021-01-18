@@ -6,9 +6,9 @@ using System.Web;
 
 namespace Shop.Utility
 {
-    public class Client
+    public class User
     {
-        public int ClientID { get; set; }
+        public int UserID { get; set; }
         public int AddressID { get; set; }
         
         [Required(ErrorMessage = "Enter your name.")]
