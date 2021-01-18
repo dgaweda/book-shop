@@ -1,0 +1,92 @@
+﻿@model Shop.ViewModels.CartViewModel
+@using Shop.Infrastructure
+@{
+    ViewBag.Title = "CartIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="content">
+    @Html.Action("CategoriesMenu", "Book")
+    <section id="rightContent">
+        <table id="book_description">
+            <caption>Your Shopping Cart</caption>
+
+            @foreach (var cartItem in Model.CartItems)
+            {
+                <tr class="bottomLine" id="cart-record-@cartItem.Book.BookId">
+                    <td>
+                        <a href="@Url.Action("Details", "Book", new { id = cartItem.Book.BookId })">
+                            <h1 id="AaA" style="background-image: url(@Url.BookImagesPath(cartItem.Book.IcoName));" />
+                        </a>
+                    </td>
+
+                    <td>
+                        <h10 id="textPos">@cartItem.Book.Title</h10>
+                    </td>
+
+                    <td>
+                        <h10>Quantity:</h10><h10 id="cart-quantity-@cartItem.Book.BookId">@cartItem.Quantity </h10>
+                    </td>
+
+                    <td>
+                        <h10>@String.Format("{0:0.##}", cartItem.Value)$</h10>
+                    </td>
+
+                    <a class="bookDelete" data-id="@cartItem.Book.BookId" href="#">
+                        <td class="deleteButton">
+                            Delete
+                        </td>
+                    </a>
+                </tr>
+            }
+
+            <tr>
+                <td class="" id="FinalPrice">
+                    <h1>Sum: <h1 id="final-price-value">@String.Format("{0:0.##}", Model.FinalPrice) $</h1></h1>
+                </td>
+
+                @if (Model.FinalPrice > 0)
+                {
+                    <a href="@Url.Action("Pay", "Cart")" class="" id="cart-button-pay">
+                        <td class="deleteButton">
+                            Pay
+                        </td>
+                    </a>
+                }
+            </tr>
+        </table>
+    </section>
+</section>
+
+@section Scripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryAndJqueryUI")
+
+    <script type="text/javascript">
+        $(function () {
+            $(".bookDelete").click(function () {
+                var bookToDelete = $(this).attr("data-id");
+
+                if (bookToDelete != '') {
+                    $.post("/Cart/Remove", { "BookId": bookToDelete },
+                        function (response) {
+                            if (response.QuantityOfItemToDelete == 0) {
+
+                                $('#cart-record-' + response.IdDeletedItem);
+                            }
+                            else {
+                                $('#cart-quantity-' + response.IdDeletedItem).text(response.QuantityOfItemToDelete);
+                            }
+
+                            if (response.CountCartItems == 0) {
+                                $('#cart-button-pay').addClass('hidden');
+                                $('#FinalPrice').addClass('invisible');
+                            }
+                            $('#final-price-value').text(response.CartFinalPrice);
+                            $('#cart-header-items-count').text(response.CartCountItems);
+                        });
+                    return false;
+                }
+            });
+        });
+    </script>
+}

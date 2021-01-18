@@ -92,7 +92,7 @@ namespace Shop.Infrastructure
             return cartValue;
         }
 
-        public int GetQuantityOfCart()
+        public int GetQuantityOfCartItems()
         {
             var cart = GetCart();
             var quantity = cart.Sum(q => q.Quantity);
@@ -138,3 +138,4 @@ namespace Shop.Infrastructure
         }
     }
 }
+
