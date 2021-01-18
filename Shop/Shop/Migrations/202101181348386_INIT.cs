@@ -1,9 +1,9 @@
-﻿namespace Shop.Migrations
+namespace Shop.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class INIT : DbMigration
     {
         public override void Up()
         {
@@ -50,6 +50,7 @@
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Bestseller = c.Boolean(nullable: false),
                         Hidden = c.Boolean(nullable: false),
+                        ShortDescription = c.String(),
                     })
                 .PrimaryKey(t => t.BookId)
                 .ForeignKey("dbo.Category", t => t.CategoryId, cascadeDelete: true)
@@ -67,16 +68,16 @@
                 .PrimaryKey(t => t.CategoryID);
             
             CreateTable(
-                "dbo.OrderPosition",
+                "dbo.OrderItem",
                 c => new
                     {
-                        OrderPositionID = c.Int(nullable: false, identity: true),
+                        OrderItemID = c.Int(nullable: false, identity: true),
                         OrderID = c.Int(nullable: false),
                         BookID = c.Int(nullable: false),
                         Quantity = c.Int(nullable: false),
-                        BuyPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Value = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
-                .PrimaryKey(t => t.OrderPositionID)
+                .PrimaryKey(t => t.OrderItemID)
                 .ForeignKey("dbo.Book", t => t.BookID, cascadeDelete: true)
                 .ForeignKey("dbo.Order", t => t.OrderID, cascadeDelete: true)
                 .Index(t => t.OrderID)
@@ -101,18 +102,18 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.OrderPosition", "OrderID", "dbo.Order");
+            DropForeignKey("dbo.OrderItem", "OrderID", "dbo.Order");
             DropForeignKey("dbo.Order", "ClientID", "dbo.Client");
-            DropForeignKey("dbo.OrderPosition", "BookID", "dbo.Book");
+            DropForeignKey("dbo.OrderItem", "BookID", "dbo.Book");
             DropForeignKey("dbo.Book", "CategoryId", "dbo.Category");
             DropForeignKey("dbo.Client", "AddressID", "dbo.Address");
             DropIndex("dbo.Order", new[] { "ClientID" });
-            DropIndex("dbo.OrderPosition", new[] { "BookID" });
-            DropIndex("dbo.OrderPosition", new[] { "OrderID" });
+            DropIndex("dbo.OrderItem", new[] { "BookID" });
+            DropIndex("dbo.OrderItem", new[] { "OrderID" });
             DropIndex("dbo.Book", new[] { "CategoryId" });
             DropIndex("dbo.Client", new[] { "AddressID" });
             DropTable("dbo.Order");
-            DropTable("dbo.OrderPosition");
+            DropTable("dbo.OrderItem");
             DropTable("dbo.Category");
             DropTable("dbo.Book");
             DropTable("dbo.Client");

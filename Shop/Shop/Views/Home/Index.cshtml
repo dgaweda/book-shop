@@ -1,0 +1,54 @@
+﻿@model Shop.ViewModels.HomeViewModel
+@using Shop.Infrastructure
+
+@{
+    ViewBag.Title = "ReadIt - Your Book Partner";
+}
+<section id="content">
+    <p id="categories">Categories</p>
+    <ul>
+        @foreach (var category in Model.Categories)
+        {
+            <a href="@Url.Action("List", "Book", new { Name = category.Name.ToLower()})">
+                <li style="background-image: url(@Url.CategoriesIconsPath(category.IcoName));">
+                    @category.Name
+                </li>
+            </a>
+        }
+    </ul>
+
+    <section id="rightContent">
+        <table>
+            <caption>Main Page</caption>
+            <tr>
+                @foreach (var newest in Model.Newest)
+                {
+                    <td>
+                        <a href="@Url.Action("Details", "Book", new { id = newest.BookId })">
+                            <h5 style="background-image:url(@Url.BookImagesPath(newest.IcoName))" id="new">
+                                <div style="background-image: url(@Url.Content("~/Content/Images/Index/new.png"))" id="newIco" )></div>
+                                <h6 id="TitleAndAuthor">@newest.Title - @newest.Author</h6>
+                            </h5>
+                            <a href="@Url.Action("AddToCart", "Cart", new { id = newest.BookId })" class="buy_buttonIndex">Dodaj do koszyka</a>
+                        </a>
+                    </td>
+                }
+            </tr>
+
+            <tr>
+                @foreach (var bestseller in Model.Bestsellers)
+                {
+                    <td>
+                        <a href="@Url.Action("Details", "Book", new { id = bestseller.BookId})">
+                            <h5 style="background-image:url(@Url.BookImagesPath(bestseller.IcoName))" id="bestseller">
+                                <div style="background-image: url(@Url.Content("~/Content/Images/Index/bestseller.png"))" id="bestsellerIco"></div>
+                                <h6 id="TitleAndAuthor">@bestseller.Title - @bestseller.Author</h6>
+                            </h5>
+                            <a href="@Url.Action("AddToCart", "Cart", new { id = bestseller.BookId })" class="buy_buttonIndex">Dodaj do koszyka</a>
+                        </a>
+                    </td>
+                }
+            </tr>
+        </table>
+    </section>
+</section>
