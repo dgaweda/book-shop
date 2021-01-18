@@ -1,27 +1,28 @@
 ﻿@model IEnumerable<Shop.Models.Book>
 @using Shop.Infrastructure
 
-        <table>
-            <caption>Category</caption>
-            @foreach (var book in Model)
-            {
-            <tr>
-                <td>
-                    <a href="@Url.Action("Details", "Book", new { id = book.BookId })">
-                        <article style="background-image:url(@Url.BookImagesPath(book.IcoName))" id="bookCategories">
+<table>
 
-                            @if (!book.Bestseller)
-                            {
-                                <div id="bestsellerIco"></div>
-                            }
+    @foreach (var book in Model)
+    {
+        <caption>@book.Category.Name</caption>
+        <tr>
+            <td>
+                <a href="@Url.Action("Details", "Book", new { id = book.BookId })">
+                    <article style="background-image:url(@Url.BookImagesPath(book.IcoName))" id="bookCategories">
+
+                        @if (!book.Bestseller)
+                        {
+                            <div id="bestsellerIco"></div>
+                        }
 
 
-                        </article>
-                        <h6 id="TitleAndAuthor">@book.Title - @book.Author</h6>
-                    </a>
-                        <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId})" class="buy_buttonCategories">Dodaj do koszyka</a>
-                    
-                </td>
-            </tr>
-            }
-        </table>
+                    </article>
+                    <h6 id="TitleAndAuthor">@book.Title - @book.Author</h6>
+                </a>
+                <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId})" class="buy_buttonCategories">Dodaj do koszyka</a>
+
+            </td>
+        </tr>
+    }
+</table>
