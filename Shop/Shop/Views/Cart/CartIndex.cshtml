@@ -7,8 +7,11 @@
 
 <section id="content">
     @Html.Action("CategoriesMenu", "Book")
+    
+    
     <section id="rightContent">
         <table id="book_description">
+
             <caption>Your Shopping Cart</caption>
 
             @foreach (var cartItem in Model.CartItems)
@@ -44,16 +47,21 @@
                 <td class="" id="FinalPrice">
                     <h1>Sum: <h1 id="final-price-value">@String.Format("{0:0.##}", Model.FinalPrice) $</h1></h1>
                 </td>
-
-                @if (Model.FinalPrice > 0)
-                {
-                    <a href="@Url.Action("Pay", "Cart")" class="" id="cart-button-pay">
-                        <td class="deleteButton">
+                <td>
+                    @if (Model.FinalPrice > 0)
+                    {
+                        <a href="@Url.Action("Pay", "Cart")" class="" id="payButton">
                             Pay
-                        </td>
-                    </a>
-                }
+                        </a>
+
+                        <a href="@Url.Action("Clear", "Cart")" class="" id="payButton">
+                            Clear
+                        </a>
+                    }
+                </td>
             </tr>
+
+
         </table>
     </section>
 </section>

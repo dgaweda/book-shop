@@ -242,6 +242,12 @@
     <Compile Include="Migrations\202101182323478_Final.Designer.cs">
       <DependentUpon>202101182323478_Final.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101191650153_I.cs" />
+    <Compile Include="Migrations\202101191650153_I.Designer.cs">
+      <DependentUpon>202101191650153_I.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101191809482_Orders\.cs" />
+    <Compile Include="Migrations\202101191809482_Orders\.Designer.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -274,6 +280,9 @@
     <Content Include="Views\Shared\_RightSectionLayout.cshtml" />
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Cart\Pay.cshtml" />
+    <Content Include="Views\Cart\OrderConfirm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -287,6 +296,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202101182323478_Final.resx">
       <DependentUpon>202101182323478_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101191809482_Orders\.resx">
+      <DependentUpon>.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
