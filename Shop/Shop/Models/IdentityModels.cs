@@ -9,15 +9,12 @@ using System.Threading.Tasks;
 using System.Web;
 
 namespace Shop.Models
-{
-    public class IdentityModels
-    {
-        public virtual ICollection<Order> Orders { get; set; }
-        public User UserData { get; set; }
+{ 
         public class ApplicationUser : IdentityUser
         {
             public User User { get; set; }
             public virtual ICollection<Order> Order { get; set; }
+
             
             public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
             {
@@ -27,5 +24,4 @@ namespace Shop.Models
                 return userIdentity;
             }
         }
-    }
 }

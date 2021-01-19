@@ -10,12 +10,10 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
-using static Shop.Models.IdentityModels;
+using Shop.Models;
 
 namespace Shop.App_Start
 {
-    public class IdentityConfig
-    {
         public class EmailService : IIdentityMessageService
         {
             public Task SendAsync(IdentityMessage message)
@@ -108,5 +106,4 @@ namespace Shop.App_Start
                 return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
             }
         }
-    }
 }

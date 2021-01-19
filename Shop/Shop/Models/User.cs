@@ -9,6 +9,7 @@ namespace Shop.Utility
     public class User
     {    
         //[Required(ErrorMessage = "Enter your name.")]
+
         [StringLength(30)]
         public string Name { get; set; }
 
@@ -20,6 +21,7 @@ namespace Shop.Utility
         public string PhoneNumber { get; set; }
 
         //[Required(ErrorMessage = "Enter your E-mail.")]
+
         [StringLength(100)]
         [EmailAddress(ErrorMessage = "Invalid e-mail. Try example@example.pl")]  //(@"^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$", ErrorMessage = "Invalid e-mail. Try example@example.pl")] // Email validation xxxx@xxx.xx
         public string Email { get; set; }

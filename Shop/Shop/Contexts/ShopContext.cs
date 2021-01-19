@@ -1,4 +1,5 @@
-﻿using Shop.Initializer;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+//using Shop.Initializer;
 using Shop.Models;
 using Shop.Utility;
 using System;
@@ -10,24 +11,28 @@ using System.Web;
 
 namespace Shop.Contexts
 {
-    public class ShopContext : DbContext
+    public class ShopContext : IdentityDbContext<ApplicationUser>
     {
         
-        public ShopContext() : base("BooksContext") // Constructor when connectionstring(database) is extracted
+        public ShopContext() : base("Books") // Constructor when connectionstring(database) is extracted
         {
                 
         }
+        
         static ShopContext()
         {
-            Database.SetInitializer<ShopContext>(new ShopInitilizer()); // Init Default Data to Database
+           // Database.SetInitializer<ShopContext>(new ShopInitilizer()); // Init Default Data to Database
+        }
+
+        public static ShopContext Create()
+        {
+            return new ShopContext();
         }
         // Added Tables
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderPositions { get; set; }
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
