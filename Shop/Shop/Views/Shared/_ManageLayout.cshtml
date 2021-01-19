@@ -15,6 +15,19 @@
                         <td id="menuLogIn">
                             @Html.Partial("_LoginPartial")
                         <td />
+
+                        <td>
+                            <a id="registerLink" href="@Url.Action("Index", "Home")">
+                                Start
+                            </a>
+                        </td>
+
+                        <td>
+                            <a id="registerLink" href="@Url.Action("ManageIndex", "Manage")">
+                                Your Data
+                            </a>
+                        </td>
+
                         <td>
                             <a href="@Url.Action("CartIndex", "Cart")" class="menu_button">Cart (<span id="cart-header-items-count">@Html.Action("GetQuantityOfCartItems", "Cart")</span>)</a>
 
