@@ -66,8 +66,11 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
@@ -223,6 +226,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Contexts\ShopContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookController.cs" />
@@ -238,9 +242,21 @@
     <Compile Include="Infrastructure\SessionKey.cs" />
     <Compile Include="Infrastructure\SessionManager.cs" />
     <Compile Include="Infrastructure\UrlHelpers.cs" />
-    <Compile Include="Migrations\202101182323478_Final.cs" />
-    <Compile Include="Migrations\202101182323478_Final.Designer.cs">
-      <DependentUpon>202101182323478_Final.cs</DependentUpon>
+    <Compile Include="Migrations\202101191417202_Final.cs" />
+    <Compile Include="Migrations\202101191417202_Final.Designer.cs">
+      <DependentUpon>202101191417202_Final.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101191557037_smallChanges.cs" />
+    <Compile Include="Migrations\202101191557037_smallChanges.Designer.cs">
+      <DependentUpon>202101191557037_smallChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101191634518_SmallEdits.cs" />
+    <Compile Include="Migrations\202101191634518_SmallEdits.Designer.cs">
+      <DependentUpon>202101191634518_SmallEdits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101191650153_I.cs" />
+    <Compile Include="Migrations\202101191650153_I.Designer.cs">
+      <DependentUpon>202101191650153_I.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -250,8 +266,8 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\UserData\Address.cs" />
-    <Compile Include="Models\UserData\User.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\CartRemovingViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
@@ -274,6 +290,7 @@
     <Content Include="Views\Shared\_RightSectionLayout.cshtml" />
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -285,8 +302,17 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101182323478_Final.resx">
-      <DependentUpon>202101182323478_Final.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101191417202_Final.resx">
+      <DependentUpon>202101191417202_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101191557037_smallChanges.resx">
+      <DependentUpon>202101191557037_smallChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101191634518_SmallEdits.resx">
+      <DependentUpon>202101191634518_SmallEdits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101191650153_I.resx">
+      <DependentUpon>202101191650153_I.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

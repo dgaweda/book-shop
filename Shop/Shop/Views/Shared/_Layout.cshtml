@@ -13,11 +13,10 @@
                 <table style="width:100%;">
                     <tr id="cartAndButton">
                         <td id="menuLogIn">
-                            Zalogowany jako Sample
-                        </td>
-
+                            @Html.Partial("_LoginPartial")
+                        <td/>
                         <td>
-                            <a href="link" class="menu_button">Koszyk (<span id="cart-header-items-count">@Html.Action("GetQuantityOfCartItems", "Cart")</span>)</a>
+                            <a href="Cart" class="menu_button">Koszyk (<span id="cart-header-items-count">@Html.Action("GetQuantityOfCartItems", "Cart")</span>)</a>
                         </td>
 
                         <td id="cart">
