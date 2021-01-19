@@ -7,7 +7,7 @@
 
         <table>
             <tr>
-                <td>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</td>
+                <td>@Html.ActionLink("Logged as " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</td>
                 <td><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></td>
             </tr>
         </table>
@@ -18,8 +18,7 @@ else
     <table>
         <tr>
             <td>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</td>
-            <td>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</td>
+            <td>@Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</td>
         </tr>
     </table>
 }
-            }
