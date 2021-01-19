@@ -1,0 +1,75 @@
+﻿@model Shop.Models.Order
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_RightSectionLayout.cshtml";
+}
+
+@section SectionTitle{
+    Fill order data
+}
+
+@using (@Html.BeginForm("Pay", "Cart"))
+{
+<table id="checkout-address-table">
+    <tr>
+        <td>@Html.LabelFor(o => o.Name, "Name:")</td>
+        <td>@Html.TextBoxFor(o => o.Name)</td>
+        <td>@Html.ValidationMessageFor(o => o.Name)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(o => o.LastName, "Lastname")</td>
+        <td>@Html.TextBoxFor(o => o.LastName)</td>
+        <td>@Html.ValidationMessageFor(o => o.LastName)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(o => o.PhoneNumber, "Phonenumber")</td>
+        <td>@Html.TextBoxFor(o => o.PhoneNumber)</td>
+        <td>@Html.ValidationMessageFor(o => o.PhoneNumber)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(o => o.Street, "Street")</td>
+        <td>@Html.TextBoxFor(o => o.Street)</td>
+        <td>@Html.ValidationMessageFor(o => o.Street)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(o => o.StreetNumber, "StreetNumber")</td>
+        <td>@Html.TextBoxFor(o => o.StreetNumber)</td>
+        <td>@Html.ValidationMessageFor(o => o.StreetNumber)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(o => o.HouseNumber, "House Number")</td>
+        <td>@Html.TextBoxFor(o => o.HouseNumber)</td>
+        <td>@Html.ValidationMessageFor(o => o.HouseNumber)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(o => o.PostCode, "Postcode")</td>
+        <td>@Html.TextBoxFor(o => o.PostCode)</td>
+        <td>@Html.ValidationMessageFor(o => o.PostCode)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(o => o.City, "City")</td>
+        <td>@Html.TextBoxFor(o => o.City)</td>
+        <td>@Html.ValidationMessageFor(o => o.City)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(o => o.Email, "Email")</td>
+        <td>@Html.TextBoxFor(o => o.Email)</td>
+        <td>@Html.ValidationMessageFor(o => o.Email)</td>
+    </tr>
+    <tr>
+        <td><label for="Comment">Details</label></td>
+        <td>
+            <textarea cols="40" rows="3" name="Comment">@Model.Comment</textarea>
+        </td>
+    </tr>
+</table>
+
+@Html.ValidationSummary()
+    <hr style="margin-bottom: 50px;"/>
+
+    <div>
+        <a id="submitButton" href="@Url.Action("CartIndex", "Cart")">Back</a>
+        <input id="submitButton"  type="submit" value="Submit"/>
+    </div>
+}
+

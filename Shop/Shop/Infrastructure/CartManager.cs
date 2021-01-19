@@ -100,12 +100,12 @@ namespace Shop.Infrastructure
             return quantity;
         }
 
-        public Order CreateOrder(Order order)
+        public Order CreateOrder(Order order, string userId)
         {
             var cart = GetCart();
 
             order.DateAdded = DateTime.Now;
-            //order.ClientID = ClientID;
+            order.UserID = userId;
 
             _db.Orders.Add(order);
 

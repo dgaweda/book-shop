@@ -13,7 +13,8 @@ namespace Shop.Models
         public class ApplicationUser : IdentityUser
         {
             public User User { get; set; }
-            //public virtual ICollection<Order> Order { get; set; }
+            public virtual ICollection<Order> Order { get; set; }
+
             
             public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
             {

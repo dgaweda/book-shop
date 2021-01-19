@@ -8,7 +8,7 @@
         <table>
             <tr>
                 <td>@Html.ActionLink("Logged as " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</td>
-                <td><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></td>
+                <td><a id="submitButton" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></td>
             </tr>
         </table>
     }
