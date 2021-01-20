@@ -285,10 +285,10 @@ footer {
 }
 
 #img {
-    background-size: 200px 300px;
+    background-size: 100px 200px;
     background-repeat:no-repeat;
-    width: 200px;
-    height: 300px;
+    width: 100px;
+    height: 200px;
     display: inline-block;
     border:2px solid gray;
 }
@@ -678,4 +678,33 @@ caption {
 .Done {
     background-color:lightgreen;
 }
+
+div.fakefile {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+input.file {
+    position: relative;
+    text-align: right;
+    filter: alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+}
+
+div.fakefile {
+    width: 70px;
+    height: 50px;
+    background: url(Images/upload.jpg);
+    background-size: 70px 50px;
+}
+
+    div.fakefile input {
+        width: 150px !important;
+        height: 50px !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+    }
 /*Manage*/

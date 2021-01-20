@@ -1,0 +1,104 @@
+﻿@model Shop.ViewModels.BookEditViewModel
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+
+<section id="content">
+    <section id="rightContent">
+        <table id="book_description">
+
+
+            @using (Html.BeginForm("AddBook", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <tr>
+                    <td>
+                        @Html.ValidationSummary()
+                    </td>
+                </tr>
+                @Html.HiddenFor(o => o.Book.BookId)
+                @Html.HiddenFor(o => o.Book.DateAdded)
+                @Html.HiddenFor(o => o.Book.IcoName)
+
+                <table>
+                    <caption>Book Data</caption>
+                    <tr>
+                        <td>@Html.LabelFor(o => o.Book.Author, "Author:")</td>
+                        <td>@Html.TextBoxFor(o => o.Book.Author)</td>
+                        <td>@Html.ValidationMessageFor(o => o.Book.Author)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(o => o.Book.Title, "Title:")</td>
+                        <td>@Html.TextBoxFor(o => o.Book.Title)</td>
+                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.Title)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(o => o.Book.Description, "Description:")</td>
+                        <td>@Html.TextBoxFor(o => o.Book.Description)</td>
+                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.Description)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(o => o.Categories, "Category:")</td>
+                        <td>@Html.DropDownListFor(o => o.Book.CategoryId, new SelectList(Model.Categories, "CategoryId", "Name", Model.Categories.First().CategoryID))</td>
+                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.CategoryId)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(o => o.Book.Price, "Price:")</td>
+                        <td>@Html.TextBoxFor(o => o.Book.Price)</td>
+                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.Price)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(o => o.Book.Bestseller, "Bestseller:")</td>
+                        <td>@Html.CheckBoxFor(o => o.Book.Bestseller)</td>
+                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.Bestseller)</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @if (ViewBag.EditMode == true)
+                            {
+                                if (Model.Book.Hidden)
+                                {
+                                    <a href="@Url.Action("Show", "Manage", new { BookId = Model.Book.BookId })" style="buy_button">
+                                        Restore
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Hide", "Manage", new { BookId = Model.Book.BookId })" style="buy_button">
+                                        Hide
+                                    </a>
+                                }
+                            }
+                        </td>
+                    </tr>
+
+                    @if (ViewBag.EditMode == null || !ViewBag.EditMode)
+                    {
+                        <tr>
+                            <td>
+                                <input type="file" name="file" />
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input id="submitButton" type="submit" value="Save" />
+                        </td>
+                    </tr>
+
+
+                </table>
+
+            }
+            @if (Model.Confirmation.HasValue && Model.Confirmation.Value)
+            {
+                <h2 style="margin-left:200px;">Changes made properly!</h2>
+            }
+        </table>
+    </section>
+</section>
+

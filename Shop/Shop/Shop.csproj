@@ -152,6 +152,7 @@
     <Content Include="Content\Images\Index\new.png" />
     <Content Include="Content\Images\Login\guest.png" />
     <Content Include="Content\Images\Login\user.png" />
+    <Content Include="Content\Images\upload.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -308,6 +309,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\BookEditViewModel.cs" />
     <Compile Include="ViewModels\CartRemovingViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
@@ -337,6 +339,7 @@
     <Content Include="Views\Shared\_ManageLayout.cshtml" />
     <Content Include="Views\Manage\OrderList.cshtml" />
     <Content Include="Views\Shared\Display\Enum.cshtml" />
+    <Content Include="Views\Manage\AddBook.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

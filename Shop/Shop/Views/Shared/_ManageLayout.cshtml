@@ -26,8 +26,13 @@
                             <a id="registerLink" href="@Url.Action("OrderList", "Manage")">
                                 Order List
                             </a>
-
-                        <td>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a id="registerLink" href="@Url.Action("AddBook", "Manage")">
+                                    Add
+                                </a>
+                            }
+                        </td>
                         <td>
                             <a href="@Url.Action("CartIndex", "Cart")" id="registerLink">Cart (<span id="cart-header-items-count">@Html.Action("GetQuantityOfCartItems", "Cart")</span>)</a>
 

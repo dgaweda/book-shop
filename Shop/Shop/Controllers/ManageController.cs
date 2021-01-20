@@ -3,12 +3,14 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Shop.App_Start;
 using Shop.Contexts;
+using Shop.Infrastructure;
 using Shop.Models;
 using Shop.Utility;
 using Shop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -47,7 +49,7 @@ namespace Shop.Controllers
 
         //
         // GET: /Manage/Index
-        public async Task<ActionResult> ManageIndex(ManageMessageId? message) 
+        public async Task<ActionResult> ManageIndex(ManageMessageId? message)
         {
             if (TempData["ViewData"] != null)
             {
@@ -97,14 +99,14 @@ namespace Shop.Controllers
             }
 
             var message = "Data Updated Successfully";
-            return RedirectToAction("ManageIndex", new { Message = message});
+            return RedirectToAction("ManageIndex", new { Message = message });
         }
 
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangePassword([Bind(Prefix = "ChangePasswordViewModel")]ChangePasswordViewModel model)
+        public async Task<ActionResult> ChangePassword([Bind(Prefix = "ChangePasswordViewModel")] ChangePasswordViewModel model)
         {
             if (!ModelState.IsValid) // check form
             {
@@ -173,7 +175,7 @@ namespace Shop.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public Status OrderStatusChange(Order order)
         {
             Order findOrder = db.Orders.Find(order.OrderID);
@@ -181,6 +183,98 @@ namespace Shop.Controllers
             db.SaveChanges();
 
             return order.Status;
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddBook(int? BookId, bool? confirmation) // nullable
+        {
+            Book book;
+            if (BookId.HasValue)
+            {
+                ViewBag.EditMode = true; // editing 
+                book = db.Books.Find(BookId);
+            }
+            else
+            {
+                ViewBag.EditMode = false; // editing
+                book = new Book();
+            }
+
+            var result = new BookEditViewModel();
+            result.Categories = db.Categories.ToList();
+            result.Book = book;
+            result.Confirmation = confirmation;
+
+            return View(result);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddBook(BookEditViewModel model, HttpPostedFileBase file)
+        {
+            if (model.Book.BookId > 0)
+            {
+                // EDIT infot framwork that book was edited
+                db.Entry(model.Book).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("AddBook", new { confirmation = true });
+            }
+            else
+            {
+                if (file != null && file.ContentLength > 0)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        var fileExtension = Path.GetExtension(file.FileName);
+                        var fileName = Guid.NewGuid() + fileExtension;
+
+                        var path = Path.Combine(Server.MapPath(AppConfig.CategoriesImages), fileName);
+                        file.SaveAs(path);
+
+                        model.Book.IcoName = fileName;
+
+                        model.Book.DateAdded = DateTime.Now;
+
+                        db.Entry(model.Book).State = EntityState.Added; // add changes
+                        db.SaveChanges(); // save
+
+                        return RedirectToAction("AddBook", new { confirmation = true }); // added to base info
+                    }
+                    else
+                    {
+                        var category = db.Categories.ToList(); // redirect to the start
+                        model.Categories = category;
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "File not recognized");
+                    var category = db.Categories.ToList(); // redirect to the start
+                    model.Categories = category;
+                    return View(model);
+                }
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Show(int BookId)
+        {
+            var book = db.Books.Find(BookId);
+            book.Hidden = false;
+            db.SaveChanges();
+
+            return RedirectToAction("AddBook", new { confirmation = true });
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Hide(int BookId)
+        {
+            var book = db.Books.Find(BookId);
+            book.Hidden = true;
+            db.SaveChanges();
+
+            return RedirectToAction("AddBook", new { confirmation = true });
         }
     }
 }

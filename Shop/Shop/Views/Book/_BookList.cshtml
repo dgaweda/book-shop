@@ -2,27 +2,59 @@
 @using Shop.Infrastructure
 
 <table>
-
     @foreach (var book in Model)
     {
-        <caption>@book.Category.Name</caption>
-        <tr>
-            <td>
-                <a href="@Url.Action("Details", "Book", new { id = book.BookId })">
-                    <article style="background-image:url(@Url.BookImagesPath(book.IcoName))" id="bookCategories">
+        if (book.Hidden != true)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "Book", new { id = book.BookId })">
+                        <article style="background-image:url(@Url.BookImagesPath(book.IcoName))" id="bookCategories">
 
-                        @if (!book.Bestseller)
-                        {
-                            <div id="bestsellerIco"></div>
-                        }
+                            @if (!book.Bestseller)
+                            {
+                                <div id="bestsellerIco">XD</div>
+                            }
 
 
-                    </article>
+                        </article>
+                    </a>
+                </td>
+
+                <td>
                     <h6 id="TitleAndAuthor">@book.Title - @book.Author</h6>
-                </a>
-                <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId})" class="buy_buttonCategories">Dodaj do koszyka</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId })" class="buy_buttonCategories">Dodaj do koszyka</a>
 
-            </td>
-        </tr>
+                </td>
+            </tr>
+        }
+        else if (User.IsInRole("Admin"))
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "Book", new { id = book.BookId })">
+                        <article style="background-image:url(@Url.BookImagesPath(book.IcoName))" id="bookCategories">
+
+                            @if (!book.Bestseller)
+                            {
+                                <div id="bestsellerIco" style="background-image:url(@Url.Content("~/Content/Images/Index/bestseller.png"))"></div>
+                            }
+
+
+                        </article>
+                    </a>
+                </td>
+
+                <td>
+                    <h6 id="TitleAndAuthor">@book.Title - @book.Author</h6>
+                </td>
+                <td>
+                    <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId })" class="buy_buttonCategories">Dodaj do koszyka</a>
+
+                </td>
+            </tr>
+        }
     }
 </table>
