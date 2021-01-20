@@ -1,0 +1,32 @@
+﻿@model Enum
+
+@if (EnumHelper.IsValidForEnumHelper(ViewData.ModelMetadata))
+{
+    // Enum Template Microsoft
+    string displayName = null;
+    foreach (SelectListItem item in EnumHelper.GetSelectList(ViewData.ModelMetadata, (Enum)Model))
+    {
+        if (item.Selected)
+        {
+            displayName = item.Text ?? item.Value;
+        }
+    }
+
+    if (String.IsNullOrEmpty(displayName))
+    {
+        if (Model == null)
+        {
+            displayName = String.Empty;
+        }
+        else
+        {
+            displayName = Model.ToString();
+        }
+    }
+
+    @Html.DisplayTextFor(model => model)
+}
+else
+{
+    @Html.DisplayTextFor(model => model)
+}

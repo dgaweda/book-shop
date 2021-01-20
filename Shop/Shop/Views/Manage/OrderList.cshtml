@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Shop.Models.Order>
+
+@{
+    ViewBag.Title = "OrderList";
+    Layout = "~/Views/Shared/_ManageLayout.cshtml";
+}
+<style>
+    #border {
+        border:2px solid gray;
+        font-weight:bold;
+        color:black;
+        font-family:
+    }
+</style>
+
+<div>
+    <section id="content">
+        <div>
+            @if (Model.Any())
+            {
+                <table id="book_description" style="margin-left:300px;color:green;">
+                    <caption>Your Orders</caption>
+                    @foreach (var order in Model)
+                    {
+
+                        <tr @if (order.Status == Shop.Models.Status.Received) { <text> style="border:1px solid lightgreen;" </text> }>
+                            <td id="border">
+                                <h2>OrderID: </h2> @order.OrderID
+                            </td>
+
+                            <td id="border">
+                                <h2>Date: </h2> @order.DateAdded
+                            </td>
+
+                            <td id="border">
+                                <h2>Status: </h2>
+                                @if (ViewBag.UserIsAdmin)
+                                {
+                                    using (Html.BeginForm("OrderStatusChange", "Manage"))
+                                    {
+                                        @Html.HiddenFor(o => order.OrderID)
+                                        @Html.EnumDropDownListFor(o => order.Status, new { @class = "ChangeOrderStatus" })
+                                }
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(o => order.Status)
+                            }
+                                </td>
+
+                                <td id="border">
+                                    <h2>Order Data</h2><br />
+                                    @order.Name @order.LastName<br />
+                                    @order.City @order.Street @order.StreetNumber<br />
+                                    @order.PostCode <br />
+                                    @order.PhoneNumber <br />
+                                </td>
+
+                                <td id="border">
+                                    <h2>Details: </h2><br />
+                                    @order.Comment
+                                </td>
+                                <td id="border">
+                                    <h2>Total: </h2>
+                                    @order.OrderValue
+                                </td>
+                            </tr>
+
+                        }
+                </table>
+            }
+            else
+            {
+                <h2 style="text-align:center;">
+                    No Orders
+                </h2>
+            }
+        </div>
+    </section>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+
+    <script>
+    $(".ChangeOrderStatus").on('change', function (e) {
+        //e.preventDefault();
+        var f = $(this.form);
+        var tr = f.closest("tr");
+        var action = f.attr("action");
+        var serializedForm = f.serialize();
+        $.post(action, serializedForm).done(function (data) {
+            if (data == '@Shop.Models.Status.Done.ToString()') {
+                tr.addClass("Done")
+            }
+            else {
+                tr.removeClass("Done");
+            }
+          });
+    });
+    </script>
+}

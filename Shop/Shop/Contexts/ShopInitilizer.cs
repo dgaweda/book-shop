@@ -7,6 +7,9 @@ using Shop.Contexts;
 using Shop.Models;
 using Shop.Migrations;
 using System.Data.Entity.Migrations;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Shop.Utility;
 
 namespace Shop.Initializer
 {
@@ -16,6 +19,7 @@ namespace Shop.Initializer
         {
             string DescriptionExample = "Action and adventure books constantly have you on the edge of your seat with excitement, as your fave main character repeatedly finds themselves in high stakes situations. The protagonist has an ultimate goal to achieve and is always put in risky, often dangerous situations. This genre typically crosses over with others like mystery, crime, sci-fi, and fantasy";
             string ShortDescriptionExample = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+            
             var Categories = new List<Category>
             {
                     new Category() { CategoryID = 1,Name = "ActionAndAdventure",Description = DescriptionExample, IcoName = "list-point.png" },
@@ -37,6 +41,37 @@ namespace Shop.Initializer
             };
             Books.ForEach(book => context.Books.AddOrUpdate(book)); // NO DUPLICATES IN DB
             context.SaveChanges();
+        }
+
+        public static void SeedUsers(ShopContext context)
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            const string Name = "darek@xyz.pl";
+            const string Password = "zaq1@WSX";
+            const string RoleName = "Admin";
+
+            var user = userManager.FindByName(Name);
+            if (user == null)
+            {
+                user = new ApplicationUser { UserName = Name, Email = Name, User = new User() };
+                var result = userManager.Create(user, Password);
+            }
+
+            // if admin doesn not exists create Admin role
+            var Role = roleManager.FindByName(RoleName);
+            if (Role == null)
+            {
+                Role = new IdentityRole(RoleName);
+                var RoleResult = roleManager.Create(Role);
+            }
+
+            var UserRoles = userManager.GetRoles(user.Id);
+            if (!UserRoles.Contains(Role.Name)) // if user is an admin cant add
+            {
+                var result = userManager.AddToRole(user.Id, Role.Name);
+            }
         }
     }
 }
