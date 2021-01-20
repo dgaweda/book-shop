@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <section id="main">
+    <section id="main" style="min-height:500px;">
         <header>
             <section id="menu">
                 <table style="width:100%;">
@@ -20,19 +20,18 @@
                             <a id="registerLink" href="@Url.Action("Index", "Home")">
                                 Start
                             </a>
-                        </td>
-
-                        <td>
                             <a id="registerLink" href="@Url.Action("ManageIndex", "Manage")">
                                 Your Data
                             </a>
-                        </td>
+                            <a id="registerLink" href="@Url.Action("OrderList", "Manage")">
+                                Order List
+                            </a>
 
                         <td>
-                            <a href="@Url.Action("CartIndex", "Cart")" class="menu_button">Cart (<span id="cart-header-items-count">@Html.Action("GetQuantityOfCartItems", "Cart")</span>)</a>
+                        <td>
+                            <a href="@Url.Action("CartIndex", "Cart")" id="registerLink">Cart (<span id="cart-header-items-count">@Html.Action("GetQuantityOfCartItems", "Cart")</span>)</a>
 
                         </td>
-
                         <td id="cart">
                         </td>
                     </tr>

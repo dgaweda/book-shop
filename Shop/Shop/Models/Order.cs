@@ -21,20 +21,20 @@ namespace Shop.Models
         [StringLength(30)]
         public string LastName { get; set; }
 
-       // [RegularExpression(@"^(([\+]?[0 - 9]{11})|([0 - 9]{9}))$", ErrorMessage = "Invalid phone number.")] // Phone Number Validation (PL) +48 111 111 111 etc.
+       //[RegularExpression(@"^(([\+]?[0 - 9]{11})|([0 - 9]{9}))$", ErrorMessage = "Invalid phone number.")] // Phone Number Validation (PL) +48 111 111 111 etc.
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Enter street name")]
         [StringLength(50)]
-        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Invalid street.")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Invalid street.")]
         public string Street { get; set; }
 
         [Required(ErrorMessage = "Enter street number")]
-        //[RegularExpression(@"^[0-9]+$", ErrorMessage = "Invalid number.")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Invalid number.")]
         public int StreetNumber { get; set; }
 
         [Required(ErrorMessage = "Enter house number")]
-        //[RegularExpression(@"^[0-9]+$", ErrorMessage = "Invalid number.")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Invalid number.")]
         public int HouseNumber { get; set; }
 
         [Required(ErrorMessage = "Fill postcode field")]
@@ -43,7 +43,7 @@ namespace Shop.Models
 
         [Required(ErrorMessage = "Enter city's name")]
         [StringLength(50)]
-       // [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Invalid street.")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Invalid street.")]
         public string City { get; set; }
 
         [Required]
@@ -58,11 +58,18 @@ namespace Shop.Models
         
         public List<OrderItem> OrderItems { get; set; }
         public virtual ApplicationUser User { get; set; }
+
+        
+
     }
 
     public enum Status
-    { 
+    {
         Received,
         Done
     }
+
+
+
+
 }

@@ -265,6 +265,38 @@
     </Compile>
     <Compile Include="Migrations\202101191809482_Orders\.cs" />
     <Compile Include="Migrations\202101191809482_Orders\.Designer.cs" />
+    <Compile Include="Migrations\202101201216391_SmallFix.cs" />
+    <Compile Include="Migrations\202101201216391_SmallFix.Designer.cs">
+      <DependentUpon>202101201216391_SmallFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101201224477_SmallFix2.cs" />
+    <Compile Include="Migrations\202101201224477_SmallFix2.Designer.cs">
+      <DependentUpon>202101201224477_SmallFix2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101201234107_AddNulls.cs" />
+    <Compile Include="Migrations\202101201234107_AddNulls.Designer.cs">
+      <DependentUpon>202101201234107_AddNulls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101201235530_AddNotNulls.cs" />
+    <Compile Include="Migrations\202101201235530_AddNotNulls.Designer.cs">
+      <DependentUpon>202101201235530_AddNotNulls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101201239355_AddNulls2.cs" />
+    <Compile Include="Migrations\202101201239355_AddNulls2.Designer.cs">
+      <DependentUpon>202101201239355_AddNulls2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101201518432_PermissionChanges.cs" />
+    <Compile Include="Migrations\202101201518432_PermissionChanges.Designer.cs">
+      <DependentUpon>202101201518432_PermissionChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101201528178_permissionChanges2.cs" />
+    <Compile Include="Migrations\202101201528178_permissionChanges2.Designer.cs">
+      <DependentUpon>202101201528178_permissionChanges2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101201536130_NullsFix.cs" />
+    <Compile Include="Migrations\202101201536130_NullsFix.Designer.cs">
+      <DependentUpon>202101201536130_NullsFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -303,6 +335,8 @@
     <Content Include="Views\Cart\OrderConfirm.cshtml" />
     <Content Include="Views\Manage\ManageIndex.cshtml" />
     <Content Include="Views\Shared\_ManageLayout.cshtml" />
+    <Content Include="Views\Manage\OrderList.cshtml" />
+    <Content Include="Views\Shared\Display\Enum.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -328,6 +362,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101191809482_Orders\.resx">
       <DependentUpon>.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101201216391_SmallFix.resx">
+      <DependentUpon>202101201216391_SmallFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101201224477_SmallFix2.resx">
+      <DependentUpon>202101201224477_SmallFix2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101201234107_AddNulls.resx">
+      <DependentUpon>202101201234107_AddNulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101201235530_AddNotNulls.resx">
+      <DependentUpon>202101201235530_AddNotNulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101201239355_AddNulls2.resx">
+      <DependentUpon>202101201239355_AddNulls2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101201518432_PermissionChanges.resx">
+      <DependentUpon>202101201518432_PermissionChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101201528178_permissionChanges2.resx">
+      <DependentUpon>202101201528178_permissionChanges2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101201536130_NullsFix.resx">
+      <DependentUpon>202101201536130_NullsFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

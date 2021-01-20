@@ -2,11 +2,13 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Shop.App_Start;
+using Shop.Contexts;
 using Shop.Models;
 using Shop.Utility;
 using Shop.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -17,6 +19,7 @@ namespace Shop.Controllers
     public class ManageController : Controller
     {
         private ApplicationUserManager _userManager;
+        private ShopContext db = new ShopContext();
         public ApplicationUserManager UserManager
         {
             get
@@ -93,7 +96,8 @@ namespace Shop.Controllers
                 return RedirectToAction("ManageIndex");
             }
 
-            return RedirectToAction("ManageIndex");
+            var message = "Data Updated Successfully";
+            return RedirectToAction("ManageIndex", new { Message = message});
         }
 
         //
@@ -141,6 +145,42 @@ namespace Shop.Controllers
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie, DefaultAuthenticationTypes.TwoFactorCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isPersistent }, await user.GenerateUserIdentityAsync(UserManager));
+        }
+
+        public ActionResult OrderList()
+        {
+            bool IsAdmin = User.IsInRole("Admin");
+            ViewBag.UserIsAdmin = IsAdmin; // ref to view
+
+            IEnumerable<Order> UserOrders;
+
+            if (IsAdmin) // for admin get all
+            {
+                UserOrders = db.Orders.Include("OrderItems")
+                    .OrderByDescending(o => o.DateAdded)
+                    .ToList();
+            }
+            else
+            {
+                var userId = User.Identity.GetUserId();
+                UserOrders = db.Orders.Where(o => o.UserID == userId)
+                    .Include("OrderItems")
+                    .OrderByDescending(o => o.DateAdded)
+                    .ToList();
+            }
+
+            return View(UserOrders);
+        }
+
+        [HttpPost]
+        [Authorize(Roles ="Admin")]
+        public Status OrderStatusChange(Order order)
+        {
+            Order findOrder = db.Orders.Find(order.OrderID);
+            findOrder.Status = order.Status;
+            db.SaveChanges();
+
+            return order.Status;
         }
     }
 }
