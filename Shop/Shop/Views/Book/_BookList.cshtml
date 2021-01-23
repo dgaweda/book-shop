@@ -6,14 +6,16 @@
     {
         if (book.Hidden != true)
         {
+            <br />
+            <br />
             <tr>
                 <td>
                     <a href="@Url.Action("Details", "Book", new { id = book.BookId })">
                         <article style="background-image:url(@Url.BookImagesPath(book.IcoName))" id="bookCategories">
 
-                            @if (!book.Bestseller)
+                            @if (book.Bestseller)
                             {
-                                <div id="bestsellerIco">XD</div>
+                                <div id="bestsellerIco" style="background-image:url(@Url.Content("~/Content/Images/Index/bestseller.png"))"></div>
                             }
 
 
@@ -24,14 +26,17 @@
                 <td>
                     <h6 id="TitleAndAuthor">@book.Title - @book.Author</h6>
                 </td>
+                
                 <td>
-                    <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId })" class="buy_buttonCategories">Dodaj do koszyka</a>
+                    <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId })" class="buy_buttonCategories">Add To Cart</a>
 
                 </td>
             </tr>
         }
         else if (User.IsInRole("Admin"))
         {
+            <br />
+            <br />
             <tr>
                 <td>
                     <a href="@Url.Action("Details", "Book", new { id = book.BookId })">
@@ -51,7 +56,7 @@
                     <h6 id="TitleAndAuthor">@book.Title - @book.Author</h6>
                 </td>
                 <td>
-                    <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId })" class="buy_buttonCategories">Dodaj do koszyka</a>
+                    <a href="@Url.Action("AddToCart", "Cart", new { id = book.BookId })" class="buy_buttonCategories">Add To Cart</a>
 
                 </td>
             </tr>

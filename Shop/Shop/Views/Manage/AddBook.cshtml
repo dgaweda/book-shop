@@ -13,46 +13,43 @@
             {
                 @Html.AntiForgeryToken()
 
-                <tr>
-                    <td>
-                        @Html.ValidationSummary()
-                    </td>
-                </tr>
+
                 @Html.HiddenFor(o => o.Book.BookId)
                 @Html.HiddenFor(o => o.Book.DateAdded)
                 @Html.HiddenFor(o => o.Book.IcoName)
-
+                <br />
+                <br />
                 <table>
                     <caption>Book Data</caption>
                     <tr>
                         <td>@Html.LabelFor(o => o.Book.Author, "Author:")</td>
                         <td>@Html.TextBoxFor(o => o.Book.Author)</td>
-                        <td>@Html.ValidationMessageFor(o => o.Book.Author)</td>
+                        <td id="RED">@Html.ValidationMessageFor(o => o.Book.Author)</td>
                     </tr>
                     <tr>
                         <td>@Html.LabelFor(o => o.Book.Title, "Title:")</td>
                         <td>@Html.TextBoxFor(o => o.Book.Title)</td>
-                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.Title)</td>
+                        <td id="RED">@Html.ValidationMessageFor(o => o.Book.Title)</td>
                     </tr>
                     <tr>
                         <td>@Html.LabelFor(o => o.Book.Description, "Description:")</td>
                         <td>@Html.TextBoxFor(o => o.Book.Description)</td>
-                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.Description)</td>
+                        <td id="RED">@Html.ValidationMessageFor(o => o.Book.Description)</td>
                     </tr>
                     <tr>
                         <td>@Html.LabelFor(o => o.Categories, "Category:")</td>
                         <td>@Html.DropDownListFor(o => o.Book.CategoryId, new SelectList(Model.Categories, "CategoryId", "Name", Model.Categories.First().CategoryID))</td>
-                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.CategoryId)</td>
+                        <td id="RED">@Html.ValidationMessageFor(o => o.Book.CategoryId)</td>
                     </tr>
                     <tr>
                         <td>@Html.LabelFor(o => o.Book.Price, "Price:")</td>
                         <td>@Html.TextBoxFor(o => o.Book.Price)</td>
-                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.Price)</td>
+                        <td id="RED">@Html.ValidationMessageFor(o => o.Book.Price)</td>
                     </tr>
                     <tr>
                         <td>@Html.LabelFor(o => o.Book.Bestseller, "Bestseller:")</td>
                         <td>@Html.CheckBoxFor(o => o.Book.Bestseller)</td>
-                        <td style="color:red;">@Html.ValidationMessageFor(o => o.Book.Bestseller)</td>
+                        <td id="RED">@Html.ValidationMessageFor(o => o.Book.Bestseller)</td>
                     </tr>
 
                     <tr>
@@ -80,6 +77,9 @@
                         <tr>
                             <td>
                                 <input type="file" name="file" />
+                            </td>
+                            <td id="RED">
+                                @Html.ValidationMessage("FILE", "")
                             </td>
                         </tr>
                     }

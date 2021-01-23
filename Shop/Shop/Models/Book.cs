@@ -25,6 +25,7 @@ namespace Shop.Models
         public string Description { get; set; }
         
         [Required(ErrorMessage = "Set a price")]
+        [Range(1, 99999.99, ErrorMessage = "Price must be greater than 0")]
         public decimal Price { get; set; }
         public bool Bestseller { get; set; }
         public bool Hidden { get; set; } // Option for Admin, beneath deleting it from TAB, just hide it

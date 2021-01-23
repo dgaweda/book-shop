@@ -134,10 +134,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Books.mdf" />
+    <Content Include="App_Data\Books_log.ldf">
+      <DependentUpon>Books.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\Images\Book\harry-potter.jpg" />
     <Content Include="Content\Images\Book\lifeOfPi.jpg" />
     <Content Include="Content\Images\Book\little-woman.jpg" />
     <Content Include="Content\Images\Book\test.jpg" />
+    <Content Include="Content\Images\Book\test1.jpg" />
+    <Content Include="Content\Images\Book\test2.jpg" />
+    <Content Include="Content\Images\Book\test3.png" />
+    <Content Include="Content\Images\Book\test4.jpg" />
+    <Content Include="Content\Images\Book\test5.png" />
+    <Content Include="Content\Images\Book\test6.png" />
     <Content Include="Content\Images\Book\the-walking-dead.jpg" />
     <Content Include="Content\Images\Cart\action-adevnture.png" />
     <Content Include="Content\Images\Cart\classic.png" />
@@ -154,47 +164,6 @@
     <Content Include="Content\Images\Login\user.png" />
     <Content Include="Content\Images\upload.jpg" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Global.asax" />
     <Content Include="Prototype\Book.html" />
     <Content Include="Prototype\Cart.html" />
@@ -238,12 +207,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Contexts\ShopInitilizer.cs" />
-    <Compile Include="Infrastructure\AppConfig.cs" />
-    <Compile Include="Infrastructure\CartManager.cs" />
-    <Compile Include="Infrastructure\ISessionManager.cs" />
-    <Compile Include="Infrastructure\SessionKey.cs" />
-    <Compile Include="Infrastructure\SessionManager.cs" />
-    <Compile Include="Infrastructure\UrlHelpers.cs" />
+    <Compile Include="Migrations\202101230115251_FinalMigration.cs" />
+    <Compile Include="Migrations\202101230115251_FinalMigration.Designer.cs">
+      <DependentUpon>202101230115251_FinalMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Helper\AppConfig.cs" />
+    <Compile Include="Service\CartManager.cs" />
+    <Compile Include="Service\Session\ISessionManager.cs" />
+    <Compile Include="Service\Session\SessionKey.cs" />
+    <Compile Include="Service\Session\SessionManager.cs" />
+    <Compile Include="Service\Helper\UrlHelpers.cs" />
     <Compile Include="Migrations\202101191417202_Final.cs" />
     <Compile Include="Migrations\202101191417202_Final.Designer.cs">
       <DependentUpon>202101191417202_Final.cs</DependentUpon>
@@ -298,6 +271,26 @@
     <Compile Include="Migrations\202101201536130_NullsFix.Designer.cs">
       <DependentUpon>202101201536130_NullsFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101202117324_ChangeValidation.cs" />
+    <Compile Include="Migrations\202101202117324_ChangeValidation.Designer.cs">
+      <DependentUpon>202101202117324_ChangeValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101220013298_ChangingRequiredValue.cs" />
+    <Compile Include="Migrations\202101220013298_ChangingRequiredValue.Designer.cs">
+      <DependentUpon>202101220013298_ChangingRequiredValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101220026020_ValidationChanges.cs" />
+    <Compile Include="Migrations\202101220026020_ValidationChanges.Designer.cs">
+      <DependentUpon>202101220026020_ValidationChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101220030279_ValidationChanges2.cs" />
+    <Compile Include="Migrations\202101220030279_ValidationChanges2.Designer.cs">
+      <DependentUpon>202101220030279_ValidationChanges2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101220038510_ValidationChanges3.cs" />
+    <Compile Include="Migrations\202101220038510_ValidationChanges3.Designer.cs">
+      <DependentUpon>202101220038510_ValidationChanges3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -310,7 +303,6 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\BookEditViewModel.cs" />
-    <Compile Include="ViewModels\CartRemovingViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -333,13 +325,13 @@
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Cart\Pay.cshtml" />
-    <Content Include="Views\Cart\OrderConfirm.cshtml" />
     <Content Include="Views\Manage\ManageIndex.cshtml" />
     <Content Include="Views\Shared\_ManageLayout.cshtml" />
     <Content Include="Views\Manage\OrderList.cshtml" />
     <Content Include="Views\Shared\Display\Enum.cshtml" />
     <Content Include="Views\Manage\AddBook.cshtml" />
+    <Content Include="Views\Cart\OrderConfirm.cshtml" />
+    <Content Include="Views\Cart\Pay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -347,9 +339,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202101191417202_Final.resx">
       <DependentUpon>202101191417202_Final.cs</DependentUpon>
@@ -389,6 +379,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101201536130_NullsFix.resx">
       <DependentUpon>202101201536130_NullsFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101202117324_ChangeValidation.resx">
+      <DependentUpon>202101202117324_ChangeValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101220013298_ChangingRequiredValue.resx">
+      <DependentUpon>202101220013298_ChangingRequiredValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101220026020_ValidationChanges.resx">
+      <DependentUpon>202101220026020_ValidationChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101220030279_ValidationChanges2.resx">
+      <DependentUpon>202101220030279_ValidationChanges2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101220038510_ValidationChanges3.resx">
+      <DependentUpon>202101220038510_ValidationChanges3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101230115251_FinalMigration.resx">
+      <DependentUpon>202101230115251_FinalMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

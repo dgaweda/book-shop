@@ -1,4 +1,5 @@
-﻿using Shop.Utility;
+﻿using Shop.Controllers;
+using Shop.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,7 @@ namespace Shop.ViewModels
     public class ManageCredentialsViewModel
     {
         public ChangePasswordViewModel ChangePasswordViewModel { get; set; }
-        public Shop.Controllers.ManageController.ManageMessageId? Message { get; set; }
+        public ManageController.ManageMessageId? Message { get; set; }
         public User User { get; set; }
     }
 

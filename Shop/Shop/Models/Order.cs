@@ -18,14 +18,14 @@ namespace Shop.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Enter your lastname.")]
-        [StringLength(30)]
+        [StringLength(30, ErrorMessage = "Too long.")]
         public string LastName { get; set; }
-
-       //[RegularExpression(@"^(([\+]?[0 - 9]{11})|([0 - 9]{9}))$", ErrorMessage = "Invalid phone number.")] // Phone Number Validation (PL) +48 111 111 111 etc.
+        
+        [RegularExpression(@"(\+\d{2})*[\d\s-]+", ErrorMessage = "Invalid phone number.")] // Phone Number Validation (PL) +48 111 111 111 etc.
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Enter street name")]
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Too long.")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Invalid street.")]
         public string Street { get; set; }
 
@@ -38,16 +38,16 @@ namespace Shop.Models
         public int HouseNumber { get; set; }
 
         [Required(ErrorMessage = "Fill postcode field")]
-        //[RegularExpression(@"^\d{2}(-\d{4})?$", ErrorMessage = "Invalid postcode")] //  postcode validation
+        [RegularExpression(@"^\d{2}(-\d{3})?$", ErrorMessage = "Invalid postcode")] //  postcode validation
         public string PostCode { get; set; }
 
         [Required(ErrorMessage = "Enter city's name")]
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Too Long.")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Invalid street.")]
         public string City { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Email is required")]
+        [StringLength(100 , ErrorMessage = "Too long.")]
         [EmailAddress(ErrorMessage = "Invalid e-mail. Try example@example.pl")]  //(@"^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$", ErrorMessage = "Invalid e-mail. Try example@example.pl")] // Email validation xxxx@xxx.xx
         public string Email { get; set; }
         

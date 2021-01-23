@@ -84,7 +84,7 @@ namespace Shop.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("loginerror", "Invalid login attempt.");
+                    ModelState.AddModelError("loginError", "Email or password are incorr");
                     return View(model);
             }
         }
@@ -102,7 +102,7 @@ namespace Shop.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View("Register");
         }
 
         [HttpPost] // Identity
@@ -137,12 +137,12 @@ namespace Shop.Controllers
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+                ModelState.AddModelError("Error", error);
             }
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken] // Log ouit
+        [ValidateAntiForgeryToken] // Log out
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);

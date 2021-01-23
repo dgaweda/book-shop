@@ -67,7 +67,7 @@ namespace Shop.Controllers
         public ActionResult Clear()
         {
             _cartManager.ClearCart();
-            
+
             return RedirectToAction("CartIndex");
         }
 
@@ -77,15 +77,15 @@ namespace Shop.Controllers
             int quantityOfCartItems = _cartManager.GetQuantityOfCartItems();
             decimal cartValue = _cartManager.GetCartValue();
 
-            var result = new CartRemovingViewModel
+            var cart = _cartManager.GetCart();
+            var result = new CartViewModel
             {
-                IdDeletedItem = BookId,
-                QuantityOfItemToDelete = quantityOfItems,
-                CartFinalPrice = cartValue,
-                CartCountItems = quantityOfCartItems
+                CartItems = cart,
+                FinalPrice = cartValue
             };
 
-            return Json(result);
+
+            return View("CartIndex", result);
         }
 
         public async Task<ActionResult> Pay()
@@ -117,21 +117,28 @@ namespace Shop.Controllers
         [HttpPost]
         public async Task<ActionResult> Pay(Order order)
         {
-            // get id of user
-            var userId = User.Identity.GetUserId();
+            if (ModelState.IsValid)
+            {
+                // get id of user
+                var userId = User.Identity.GetUserId();
 
-            // creating order based on cart
-            var newOrder = _cartManager.CreateOrder(order, userId);
+                // creating order based on cart
+                var newOrder = _cartManager.CreateOrder(order, userId);
 
-            // user details
-            var user = await UserManager.FindByIdAsync(userId);
-            TryUpdateModel(user.User);
-            await UserManager.UpdateAsync(user);
+                // user details
+                var user = await UserManager.FindByIdAsync(userId);
+                TryUpdateModel(user.User);
+                await UserManager.UpdateAsync(user);
 
-            // delete cart
-            _cartManager.ClearCart();
+                // delete cart
+                _cartManager.ClearCart();
 
-            return RedirectToAction("OrderConfirm");
+                return RedirectToAction("OrderConfirm");
+            }
+            else
+            {
+                return View(order);
+            }
         }
 
         public ActionResult OrderConfirm()

@@ -13,12 +13,18 @@
 
         <table id="book-description" style="margin-left: auto; margin-right: auto;">
             <caption>LogIn</caption>
+                
             <tr>
                 <td>@Html.LabelFor(o => o.Email, "E-mail:")</td>
                 <td>
                     @Html.TextBoxFor(o => o.Email)
-                    <div style="color:red;">
+                    <div id="RED">
                         @Html.ValidationMessageFor(o => o.Email)
+                    </div>
+                </td>
+                <td>
+                    <div id="RED">
+                        @Html.ValidationMessage("loginError", "")
                     </div>
                 </td>
             </tr>
@@ -26,7 +32,7 @@
                 <td>@Html.LabelFor(o => o.Password, "Password")</td>
                 <td>
                     @Html.PasswordFor(o => o.Password)
-                    <div style="color:red;">
+                    <div id="RED">
                         @Html.ValidationMessageFor(o => o.Password)
                     </div>
                 </td>

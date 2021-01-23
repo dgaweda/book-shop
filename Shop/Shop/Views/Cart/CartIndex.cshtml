@@ -35,11 +35,9 @@
                         <h10>@String.Format("{0:0.##}", cartItem.Value)$</h10>
                     </td>
 
-                    <a class="bookDelete" data-id="@cartItem.Book.BookId" href="#">
-                        <td class="deleteButton">
-                            Delete
-                        </td>
-                    </a>
+                    <td>
+                        <a href="@Url.Action("Remove", "Cart", new { BookId = cartItem.Book.BookId})" id="removeButton">Remove</a>
+                    </td>
                 </tr>
             }
 
@@ -65,36 +63,3 @@
         </table>
     </section>
 </section>
-
-@section Scripts{
-    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryAndJqueryUI")
-
-    <script type="text/javascript">
-        $(function () {
-            $(".bookDelete").click(function () {
-                var bookToDelete = $(this).attr("data-id");
-
-                if (bookToDelete != '') {
-                    $.post("/Cart/Remove", { "BookId": bookToDelete },
-                        function (response) {
-                            if (response.QuantityOfItemToDelete == 0) {
-
-                                $('#cart-record-' + response.IdDeletedItem);
-                            }
-                            else {
-                                $('#cart-quantity-' + response.IdDeletedItem).text(response.QuantityOfItemToDelete);
-                            }
-
-                            if (response.CountCartItems == 0) {
-                                $('#cart-button-pay').addClass('hidden');
-                                $('#FinalPrice').addClass('invisible');
-                            }
-                            $('#final-price-value').text(response.CartFinalPrice);
-                            $('#cart-header-items-count').text(response.CartCountItems);
-                        });
-                    return false;
-                }
-            });
-        });
-    </script>
-}
