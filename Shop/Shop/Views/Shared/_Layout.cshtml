@@ -11,25 +11,38 @@
         <header>
             <section id="menu">
                 <table style="width:100%;">
-                    <tr id="cartAndButton">
-                        <td id="menuLogIn">
-                            @Html.Partial("_LoginPartial")
-                        <td />
-                        <td>
-                            <a href="@Url.Action("CartIndex", "Cart")" class="menu_button">Cart (<span id="cart-header-items-count">@Html.Action("GetQuantityOfCartItems", "Cart")</span>)</a>
+                    <tr>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <td id="menuLogIn" style="background-image:url(@Url.Content("~/Content/Images/Login/user.png"))">
+                                @Html.Partial("_LoginPartial")
+                            </td>
+                        }
+                        else
+                        { 
+                            <td id="menuLogIn" style="background-image:url(@Url.Content("~/Content/Images/Login/guest.png"))">
+                                @Html.Partial("_LoginPartial")
+                            </td>
+                        }
+                            <td>
+                                <a href="@Url.Action("CartIndex", "Cart")" class="menu_button">Cart (<span id="cart-header-items-count">@Html.Action("GetQuantityOfCartItems", "Cart")</span>)</a>
 
-                        </td>
+                            </td>
 
-                        <td id="cart">
-                        </td>
-                    </tr>
+                            <td id="cart">
+                            </td>
+                        </tr>
+
                 </table>
             </section>
+
+
             <section id="banner">
                 <a href="@Url.Content("~/")">
                     <h4 id="bannerText">Dariusz Gawęda - ReadIt.app</h4>
                 </a>
             </section>
+
         </header>
 
         <div>

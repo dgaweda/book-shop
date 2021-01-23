@@ -29,7 +29,7 @@
                                 <div style="background-image: url(@Url.Content("~/Content/Images/Index/new.png"))" id="newIco" )></div>
                                 <h6 id="TitleAndAuthor">@newest.Title - @newest.Author</h6>
                             </h5>
-                            <a href="@Url.Action("AddToCart", "Cart", new { id = newest.BookId })" class="buy_buttonIndex">Dodaj do koszyka</a>
+                            <a href="@Url.Action("AddToCart", "Cart", new { id = newest.BookId })" class="buy_buttonIndex">Add To Cart</a>
                         </a>
                     </td>
                 }
@@ -44,7 +44,7 @@
                                 <div style="background-image: url(@Url.Content("~/Content/Images/Index/bestseller.png"))" id="bestsellerIco"></div>
                                 <h6 id="TitleAndAuthor">@bestseller.Title - @bestseller.Author</h6>
                             </h5>
-                            <a href="@Url.Action("AddToCart", "Cart", new { id = bestseller.BookId })" class="buy_buttonIndex">Dodaj do koszyka</a>
+                            <a href="@Url.Action("AddToCart", "Cart", new { id = bestseller.BookId })" class="buy_buttonIndex">Add To Cart</a>
                         </a>
                     </td>
                 }

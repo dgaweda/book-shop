@@ -72,7 +72,6 @@ body {
 #menuLogIn {
     text-align: center;
     font-family: Impact;
-    background-image: url("/Content/Images//Login/user.png");
     background-size: 50px 50px;
     background-repeat: no-repeat;
     width: 100px;
@@ -81,7 +80,7 @@ body {
 
 .menu_button {
     position: relative;
-    left: 850px;
+    left: 820px;
     bottom:5px;
     box-shadow: inset 0px 1px 0px 0px #e0d794;
     background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
@@ -304,11 +303,13 @@ footer {
 }
 
 #price {
-    margin-top: 30px;
+
     color: black;
     position: relative;
     bottom: 100px;
-    right: 20px;
+    top:150px;
+    left:30px;
+    width:130px;
     font-size: 30px;
     color: green;
     border: 3px solid orange;
@@ -323,12 +324,12 @@ footer {
 #title {
     font-family: 'Book Antiqua';
     font-weight: bold;
+    color:lightslategray;
 }
 
 .buy_button {
     position: relative;
-    bottom: 70px;
-    right: 20px;
+    left:30px;
     box-shadow: inset 0px 1px 0px 0px #e0d794;
     background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
     background-color: #ffec64;
@@ -494,6 +495,33 @@ caption {
         top: 51px;
         right: 80px;
     }
+
+#removeButton {
+    position: relative;
+    box-shadow: inset 0px 1px 0px 0px #e0d794;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    background-color: #ffec64;
+    border: 1px solid #91908e;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+    #removeButton :hover {
+        background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+        background-color: #ffab23;
+    }
+
+    #removeButton:active {
+        position: relative;
+        top: 1px;
+    }
 /*CART*/
 
 /*Categories*/
@@ -571,12 +599,13 @@ caption {
     text-align: right;
 }
     .submitLink:hover {
-        background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-        background-color: #ffab23;
+    background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    background-color: #ffab23;
     }
 
     .submitLink:active {
-        
+    position: relative;
+    top: 1px;
     }
 
 #registerLink {
@@ -653,6 +682,7 @@ caption {
     padding: 3px 12px;
     text-decoration: none;
     text-shadow: 0px 1px 0px #ffee66;
+    width:80px;
 }
 
     #submitButton:hover {
@@ -708,3 +738,10 @@ div.fakefile {
         overflow: hidden !important;
     }
 /*Manage*/
+/* ALL*/
+#RED {
+    font-family:Arial;
+    font-weight:bold;
+    color:red;
+    font-size:14px;
+}

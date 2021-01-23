@@ -17,11 +17,11 @@
                     <h1 id="img" style="background-image: url(@Url.BookImagesPath(Model.IcoName));"></h1>
                 </td>
                 <td>
-                    <a href="@Url.Action("AddToCart", "Cart", new {id=Model.BookId})" class="buy_button">Add to Cart</a>
-                    <h1 id="price">@Model.Price$</h1>
+                    <a href="@Url.Action("AddToCart", "Cart", new {id=Model.BookId})" class="submitLink">Add to Cart</a>
+                    <h1 id="price">Price: <br />@Model.Price$</h1>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <a href="@Url.Action("AddBook", "Manage", new { BookId = Model.BookId })" class="buy_button">
+                        <a href="@Url.Action("AddBook", "Manage", new { BookId = Model.BookId })" class="submitLink">
                             Edit
                         </a>
                     }

@@ -9,6 +9,7 @@
         @using (@Html.BeginForm("ChangeProfile", "Manage"))
         {
             @Html.AntiForgeryToken()
+            
 
             <table style="margin-top:100px;">
                 <caption>Your Data</caption>
@@ -20,42 +21,42 @@
                 <tr>
                     <td>@Html.LabelFor(o => o.User.LastName, "Lastname")</td>
                     <td>@Html.TextBoxFor(o => o.User.LastName)</td>
-                    <td style="color:red;">@Html.ValidationMessageFor(o => o.User.LastName)</td>
+                    <td id="RED">@Html.ValidationMessageFor(o => o.User.LastName)</td>
                 </tr>
                 <tr>
                     <td>@Html.LabelFor(o => o.User.PhoneNumber, "Phonenumber")</td>
                     <td>@Html.TextBoxFor(o => o.User.PhoneNumber)</td>
-                    <td style="color:red;">@Html.ValidationMessageFor(o => o.User.PhoneNumber)</td>
+                    <td id="RED">@Html.ValidationMessageFor(o => o.User.PhoneNumber)</td>
                 </tr>
                 <tr>
                     <td>@Html.LabelFor(o => o.User.Street, "Street")</td>
                     <td>@Html.TextBoxFor(o => o.User.Street)</td>
-                    <td style="color:red;">@Html.ValidationMessageFor(o => o.User.Street)</td>
+                    <td id="RED">@Html.ValidationMessageFor(o => o.User.Street)</td>
                 </tr>
                 <tr>
                     <td>@Html.LabelFor(o => o.User.StreetNumber, "StreetNumber")</td>
                     <td>@Html.TextBoxFor(o => o.User.StreetNumber)</td>
-                    <td style="color:red;">@Html.ValidationMessageFor(o => o.User.StreetNumber)</td>
+                    <td id="RED">@Html.ValidationMessageFor(o => o.User.StreetNumber)</td>
                 </tr>
                 <tr>
                     <td>@Html.LabelFor(o => o.User.HouseNumber, "House Number")</td>
                     <td>@Html.TextBoxFor(o => o.User.HouseNumber)</td>
-                    <td style="color:red;">@Html.ValidationMessageFor(o => o.User.HouseNumber)</td>
+                    <td id="RED">@Html.ValidationMessageFor(o => o.User.HouseNumber)</td>
                 </tr>
                 <tr>
                     <td>@Html.LabelFor(o => o.User.PostCode, "Postcode")</td>
                     <td>@Html.TextBoxFor(o => o.User.PostCode)</td>
-                    <td style="color:red;">@Html.ValidationMessageFor(o => o.User.PostCode)</td>
+                    <td id="RED">@Html.ValidationMessageFor(o => o.User.PostCode)</td>
                 </tr>
                 <tr>
                     <td>@Html.LabelFor(o => o.User.City, "City")</td>
                     <td>@Html.TextBoxFor(o => o.User.City)</td>
-                    <td style="color:red;">@Html.ValidationMessageFor(o => o.User.City)</td>
+                    <td id="RED">@Html.ValidationMessageFor(o => o.User.City)</td>
                 </tr>
                 <tr>
                     <td>@Html.LabelFor(o => o.User.Email, "Email")</td>
                     <td>@Html.TextBoxFor(o => o.User.Email)</td>
-                    <td style="color:red;font-size:12px">@Html.ValidationMessageFor(o => o.User.Email)</td>
+                    <td id="RED">@Html.ValidationMessageFor(o => o.User.Email)</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -72,7 +73,7 @@
         {
             @Html.AntiForgeryToken()
 
-            <div style="color:red;">
+            <div id="RED">
                 @Html.ValidationMessage("password-error", "")
             </div>
 
@@ -99,7 +100,7 @@
                         @Html.PasswordFor(o => o.ChangePasswordViewModel.OldPassword)
                     </td>
                     <td>
-                        <div style="color:red;">
+                        <div id="RED">
                             @Html.ValidationMessageFor(o => o.ChangePasswordViewModel.OldPassword)
                         </div>
                     </td>
@@ -111,7 +112,7 @@
                         
                     </td>
                     <td>
-                        <div style="color:red;">
+                        <div id="RED">
                             @Html.ValidationMessageFor(o => o.ChangePasswordViewModel.NewPassword)
                         </div>
                     </td>
@@ -123,7 +124,7 @@
                         
                     </td>
                     <td>
-                        <div style="color:red;">
+                        <div id="RED">
                             @Html.ValidationMessageFor(o => o.ChangePasswordViewModel.ConfirmPassword)
                         </div>
                     </td>

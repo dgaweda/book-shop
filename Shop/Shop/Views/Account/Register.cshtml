@@ -10,48 +10,49 @@
     {
         @Html.AntiForgeryToken()
 
-        <div style="color:red;">
-        </div>
-
-        <table id="book-description" style="margin-left: auto; margin-right: auto;">
+        <table id="book-description" style="margin-right:300px">
             <caption>Registration</caption>
             <tr>
                 <td>@Html.LabelFor(o => o.Email, "E-mail:")</td>
                 <td>
-                    @Html.TextBoxFor(o => o.Email)
-                    <div style="color:red;">
+                    @Html.TextBoxFor(o => o.Email) 
+                </td>
+                <td>
+                    <div id="RED">
                         @Html.ValidationMessageFor(o => o.Email)
+                   
+                        @Html.ValidationMessage("Error", "")
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>@Html.LabelFor(o => o.Password, "Password:")</td>
                 <td>
-                    @Html.PasswordFor(o => o.Password)
-                    <div style="color:red;">
-                        @Html.ValidationMessageFor(o => o.Password)
-                    </div>
+                    @Html.PasswordFor(o => o.Password)  
                 </td>
-                <td></td>
+                <td id="RED">
+                        @Html.ValidationMessageFor(o => o.Password)
+                </td>
             </tr>
             <tr>
                 <td style="padding: 0px 20px 0px 0px; text-align: left;">
                     @Html.LabelFor(o => o.ConfirmPassword, "Confirm your password:")
                 </td>
                 <td style="padding: 0px; text-align: left;">
-                    @Html.PasswordFor(o => o.ConfirmPassword)
-                    <div style="color:red;">
+                    @Html.PasswordFor(o => o.ConfirmPassword)  
+                </td>
+                <td>
+                    <div id="RED">
                         @Html.ValidationMessageFor(o => o.ConfirmPassword)
                     </div>
                 </td>
-                <td></td>
+
             </tr>
             <tr>
-                <td></td>
                 <td colspan="2" style="text-align: right; padding-right: 20px;">
                     <input type="submit" value="Register" class="submitLink" style="height: 40px; text-align: right; margin: 0px; padding: 10px;" />
                 </td>
             </tr>
         </table>
-     }
+    }
 </div>

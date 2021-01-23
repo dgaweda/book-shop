@@ -12,9 +12,18 @@
             <section id="menu">
                 <table style="width:100%;">
                     <tr id="cartAndButton">
-                        <td id="menuLogIn">
-                            @Html.Partial("_LoginPartial")
-                        <td />
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <td id="menuLogIn" style="background-image:url(@Url.Content("~/Content/Images/Login/user.png"))">
+                                @Html.Partial("_LoginPartial")
+                            </td>
+                        }
+                        else
+                        {
+                            <td id="menuLogIn" style="background-image:url(@Url.Content("~/Content/Images/Login/guest.png"))">
+                                @Html.Partial("_LoginPartial")
+                            </td>
+                        }
 
                         <td>
                             <a id="registerLink" href="@Url.Action("Index", "Home")">

@@ -21,7 +21,7 @@ namespace Shop.Controllers
             var categories = db.Categories
                 .Include("Books")
                 .Where(c => c.Name.ToUpper() == Name.ToUpper())
-                .Single(); //
+                .Single();
             var books = categories.Books.ToList();
             return View(books);
         }

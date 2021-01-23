@@ -130,8 +130,6 @@ namespace Shop.Controllers
                 TempData["ViewData"] = ViewData;
                 return RedirectToAction("ManageIndex");
             }
-
-            var message = ManageMessageId.ChangePasswordSuccess;
             return RedirectToAction("ManageIndex");
         }
 
@@ -196,7 +194,7 @@ namespace Shop.Controllers
             }
             else
             {
-                ViewBag.EditMode = false; // editing
+                ViewBag.EditMode = false; // create new one
                 book = new Book();
             }
 
@@ -223,9 +221,12 @@ namespace Shop.Controllers
             {
                 if (file != null && file.ContentLength > 0)
                 {
-                    if (ModelState.IsValid)
+                    var fileExtension = Path.GetExtension(file.FileName);
+                    var result = CheckExtension(fileExtension);
+                    
+                    if (ModelState.IsValid && result != false)
                     {
-                        var fileExtension = Path.GetExtension(file.FileName);
+                        
                         var fileName = Guid.NewGuid() + fileExtension;
 
                         var path = Path.Combine(Server.MapPath(AppConfig.CategoriesImages), fileName);
@@ -249,12 +250,23 @@ namespace Shop.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "File not recognized");
+                    ModelState.AddModelError("FILE", "File not recognized");
                     var category = db.Categories.ToList(); // redirect to the start
                     model.Categories = category;
                     return View(model);
                 }
             }
+        }
+
+        public bool CheckExtension(string fileExtension)
+        {
+            List<string> extensions = new List<string>() { ".PNG", ".JPG", ".JPEG", ".GIF", ".png", ".jpg", ".jpeg", ".gif" };
+            foreach (var ext in extensions)
+            {
+                if (fileExtension.Equals(ext))
+                    return true;
+            }
+            return false;
         }
 
         [Authorize(Roles = "Admin")]
